@@ -9,11 +9,9 @@ interface TopNavProps {
 
 export function TopNav({ title, children }: TopNavProps) {
   return (
-    <View className="flex-row justify-between items-center p-4 bg-gray-100">
-      <Text className="ios:font-['Inter'] font-light text-2xl">{title}</Text>
-      <View className="flex-row">
-        {children}
-      </View>
+    <View className="flex-row items-center justify-between bg-gray-100 p-4">
+      <Text className="text-2xl font-light">{title}</Text>
+      <View className="flex-row">{children}</View>
     </View>
   );
 }
