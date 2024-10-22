@@ -4,30 +4,53 @@ import { ThemeProvider as NavThemeProvider } from '@react-navigation/native';
 import { Icon } from '@roninoss/icons';
 import { Link, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, View } from 'react-native';
+import { Pressable, View, StyleSheet, Animated } from 'react-native';
+
+import { useEffect, useState } from 'react';
 
 import { ThemeToggle } from '~/components/ThemeToggle';
 import { cn } from '~/lib/cn';
 import { useColorScheme, useInitialAndroidBarSync } from '~/lib/useColorScheme';
 import { NAV_THEME } from '~/theme';
+import { SplashScreen as CustomSplashScreen } from '~/components/SplashScreen';
+import * as SplashScreen from 'expo-splash-screen';
 
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
 } from 'expo-router';
 
+// Prevent the splash screen from auto-hiding before asset loading is complete.
+SplashScreen.preventAutoHideAsync();
+
 export default function RootLayout() {
   useInitialAndroidBarSync();
   const { colorScheme, isDarkColorScheme } = useColorScheme();
+  const [showSplash, setShowSplash] = useState(true);
+  const fadeAnim = useState(new Animated.Value(1))[0];
+
+  useEffect(() => {
+    // Hide the native splash screen
+    SplashScreen.hideAsync();
+    
+    // Show custom splash screen for 3 seconds
+    const timer = setTimeout(() => {
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 1000,
+        useNativeDriver: true,
+      }).start(() => setShowSplash(false));
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [fadeAnim]);
 
   return (
-    <>
+    <View style={{ flex: 1 }}>
       <StatusBar
         key={`root-status-bar-${isDarkColorScheme ? 'light' : 'dark'}`}
         style={isDarkColorScheme ? 'light' : 'dark'}
       />
-      {/* WRAP YOUR APP WITH ANY ADDITIONAL PROVIDERS HERE */}
-      {/* <ExampleProvider> */}
 
       <NavThemeProvider value={NAV_THEME[colorScheme]}>
         <Stack screenOptions={SCREEN_OPTIONS}>
@@ -36,8 +59,17 @@ export default function RootLayout() {
         </Stack>
       </NavThemeProvider>
 
-      {/* </ExampleProvider> */}
-    </>
+      {showSplash && (
+        <Animated.View 
+          style={[
+            styles.splashContainer,
+            { opacity: fadeAnim }
+          ]}
+        >
+          <CustomSplashScreen />
+        </Animated.View>
+      )}
+    </View>
   );
 }
 
@@ -72,3 +104,12 @@ const MODAL_OPTIONS = {
   title: 'Settings',
   headerRight: () => <ThemeToggle />,
 } as const;
+
+const styles = StyleSheet.create({
+  splashContainer: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
