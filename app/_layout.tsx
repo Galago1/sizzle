@@ -37,7 +37,7 @@ export default function RootLayout() {
       return () => clearTimeout(timer);
     }
   }, [fontsLoaded, fontError, fadeAnim]);
-
+ 
   // Return null while fonts are loading
   if (!fontsLoaded && !fontError) {
     return null;
@@ -61,7 +61,6 @@ export default function RootLayout() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -77,3 +76,4 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 });
+

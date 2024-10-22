@@ -3,27 +3,14 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 
 export const SplashScreen = () => {
   return (
-    <View style={styles.container}>
+    <View >
       {/* TODO: Replace Image */}
       <Image 
         source={require('../assets/images/sizzlenobackground.png')} 
         style={{ width: 150, height: 150 }}
+        
       />
-      <Text style={styles.text}>sizzle</Text>
+      <Text className="ios:text-5xl ios:font-['Inter'] ios:text-black">sizzle</Text>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 48,
-    fontFamily: 'Inter',
-    color: 'black',
-  },
-});
