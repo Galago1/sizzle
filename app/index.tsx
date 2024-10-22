@@ -16,7 +16,7 @@ export default function Screen() {
   return (
     <Card>
       <CardContent>
-        <CardTitle>Title</CardTitle>
+        <CardTitle className="ios:font-['Inter']">Title</CardTitle>
         <CardSubtitle>Subtitle</CardSubtitle>
       </CardContent>
       <CardFooter>
