@@ -1,21 +1,24 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { Icon, IconProps } from '@roninoss/icons';
+import { Ionicons } from '@expo/vector-icons';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Stack, Tabs } from 'expo-router';
 import * as React from 'react';
 import { Platform, Pressable, PressableProps, View } from 'react-native';
 import Animated, { useAnimatedStyle, useDerivedValue, withTiming } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Badge } from '@/components/nativewindui/Badge';
-import { Text } from '@/components/nativewindui/Text';
-import { cn } from '@/lib/cn';
-import { useColorScheme } from '@/lib/useColorScheme';
+import { Badge } from '~/components/nativewindui/Badge';
+import { Text } from '~/components/nativewindui/Text';
+import { cn } from '~/lib/cn';
+import { useColorScheme } from '~/lib/useColorScheme';
 
 export default function TabLayout() {
   const { colors } = useColorScheme();
   return (
     <>
-      <Stack.Screen options={{ title: 'Tabs' }} />
+      <Stack.Screen options={{ headerShown: false }} />
       <Tabs
         tabBar={TAB_BAR}
         screenOptions={{
@@ -29,60 +32,68 @@ export default function TabLayout() {
             height: 100,
             borderWidth: 1,
             borderColor: '#E7E8E9',
-          
+
             borderTopColor: '#E7E8E9',
           },
           tabBarLabelStyle: {
-            paddingBottom: 12, 
+            paddingBottom: 12,
           },
           tabBarIconStyle: {
-            marginBottom: -6, 
+            marginBottom: -6,
           },
-        }}> 
+        }}>
         <Tabs.Screen
           name="index"
           options={{
             title: 'Welcome',
-            tabBarBadge: 3,
-            tabBarIcon(props) {
-              return <Icon name="newspaper" {...props} size={27} />;
-            },
+            tabBarIcon: ({ color, size }) => (
+              <FontAwesome name="hand-spock-o" color={color} size={size} />
+            ),
           }}
         />
         <Tabs.Screen
-        name="explore"
+          name="atoms"
           options={{
-            title: 'Explore',
-            tabBarIcon(props) {
-              return <Icon name="star" {...props} size={27} />;
-            },
+            title: 'Atoms',
+            tabBarIcon: ({ color, size }) => (
+              <FontAwesome5 name="atom"  color={color} size={size} />
+            ),
           }}
         />
         <Tabs.Screen
-        name="users"
+          name="molecules"
           options={{
-            title: 'For You',
-            tabBarIcon(props) {
-              return <Icon name="star" {...props} size={27} />;
-            },
+            title: 'Molecules',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="molecule"  color={color} size={size} />
+            ),
+          }}
+        />
+         <Tabs.Screen
+          name="organisms"
+          options={{
+            title: 'Organisms',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="pig-variant-outline"  color={color} size={size} />
+            ),
           }}
         />
         <Tabs.Screen
-        name="users2"
+          name="templates"
           options={{
-            title: 'For You',
-            tabBarIcon(props) {
-              return <Icon name="star" {...props} size={27} />;
-            },
+            title: 'Templates',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="application-outline"  color={color} size={size} />
+            ),
           }}
         />
         <Tabs.Screen
-        name="users3"
+          name="settings"
           options={{
-            title: 'For You',
-            tabBarIcon(props) {
-              return <Icon name="star" {...props} size={27} />;
-            },
+            title: 'Settings',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="settings-outline" color={color} size={size} />
+            ),
           }}
         />
       </Tabs>
@@ -96,8 +107,8 @@ const TAB_BAR = Platform.select({
 });
 
 const TAB_ICON = {
-  index: 'newspaper',
-  'for-you': 'star',
+  index: 'newspaper-outline',
+  'for-you': 'star-outline',
 } as const;
 
 function MaterialTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
@@ -108,7 +119,7 @@ function MaterialTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
       style={{
         paddingBottom: insets.bottom + 12,
       }}
-      >
+      className="border-t-border/25 flex-row border-t bg-card pb-4 pt-3 dark:border-t-0">
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -170,14 +181,14 @@ function MaterialTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 
 function MaterialTabItem({
   isFocused,
-  name = 'star',
+  name = 'star-outline',
   badge,
   className,
   label,
   ...pressableProps
 }: {
   isFocused: boolean;
-  name: IconProps<'material'>['name'];
+  name: keyof typeof Ionicons.glyphMap;
   label: string | React.ReactNode;
   badge?: number | string;
 } & Omit<PressableProps, 'children'>) {
@@ -200,10 +211,9 @@ function MaterialTabItem({
       <View className="h-8 w-16 items-center justify-center overflow-hidden rounded-full ">
         <Animated.View style={animatedStyle} className="bg-secondary/70 dark:bg-secondary" />
         <View>
-          <Icon
-            ios={{ useMaterialIcon: true }}
-            size={24}
+          <Ionicons
             name={name}
+            size={24}
             color={isFocused ? colors.foreground : colors.grey2}
           />
           {!!badge && <Badge>{badge}</Badge>}

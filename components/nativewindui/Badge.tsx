@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { View, ViewStyle } from 'react-native';
 
-import { Text } from '@/components/nativewindui/Text';
-import { cn } from '@/lib/cn';
+import { Text } from '~/components/nativewindui/Text';
+import { cn } from '~/lib/cn';
 
 const BORDER_CURVE: ViewStyle = {
   borderCurve: 'continuous',
