@@ -52,7 +52,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="index2"
+          name="atoms"
           options={{
             title: 'Atoms',
             tabBarIcon: ({ color, size }) => (
@@ -61,7 +61,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="index3"
+          name="molecules"
           options={{
             title: 'Molecules',
             tabBarIcon: ({ color, size }) => (
@@ -69,8 +69,17 @@ export default function TabLayout() {
             ),
           }}
         />
+         <Tabs.Screen
+          name="organisms"
+          options={{
+            title: 'Organisms',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="pig-variant-outline"  color={color} size={size} />
+            ),
+          }}
+        />
         <Tabs.Screen
-          name="index4"
+          name="templates"
           options={{
             title: 'Templates',
             tabBarIcon: ({ color, size }) => (
@@ -79,7 +88,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="index5"
+          name="settings"
           options={{
             title: 'Settings',
             tabBarIcon: ({ color, size }) => (
