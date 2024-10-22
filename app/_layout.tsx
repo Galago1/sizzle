@@ -29,7 +29,7 @@ export default function RootLayout() {
   const fadeAnim = useState(new Animated.Value(1))[0];
 
   const [fontsLoaded, fontError] = useFonts({
-    'Inter': require('../assets/fonts/Inter.ttf'),
+    Inter: require('../assets/fonts/Inter.ttf'),
     // Add other font weights if needed
     // 'Inter-Bold': require('../assets/fonts/Inter-Bold.otf'),
   });
@@ -71,12 +71,7 @@ export default function RootLayout() {
       </NavThemeProvider>
 
       {showSplash && (
-        <Animated.View 
-          style={[
-            styles.splashContainer,
-            { opacity: fadeAnim }
-          ]}
-        >
+        <Animated.View style={[styles.splashContainer, { opacity: fadeAnim }]}>
           <CustomSplashScreen />
         </Animated.View>
       )}
