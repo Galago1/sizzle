@@ -43,7 +43,7 @@ export default function Screen() {
         </TouchableOpacity>
         <View className="mt-4 flex-row justify-center">
           <Text className="text-sm">Not a member? </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push('/SignUp')}>
             <Text className="text-sm font-semibold text-gray-600 underline">Sign up</Text>
           </TouchableOpacity>
         </View>
