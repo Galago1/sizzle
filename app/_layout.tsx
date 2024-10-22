@@ -78,25 +78,25 @@ const SCREEN_OPTIONS = {
 } as const;
 
 const INDEX_OPTIONS = {
-  headerLargeTitle: true,
-  title: 'NativeWindUI',
-  headerRight: () => <SettingsIcon />,
+  // headerLargeTitle: true,
+  // title: 'NativeWindUI',
+  // headerRight: () => <SettingsIcon />,
 } as const;
 
-function SettingsIcon() {
-  const { colors } = useColorScheme();
-  return (
-    <Link href="/modal" asChild>
-      <Pressable className="opacity-80">
-        {({ pressed }) => (
-          <View className={cn(pressed ? 'opacity-50' : 'opacity-90')}>
-            <Icon name="cog-outline" color={colors.foreground} />
-          </View>
-        )}
-      </Pressable>
-    </Link>
-  );
-}
+// function SettingsIcon() {
+//   const { colors } = useColorScheme();
+//   return (
+//     <Link href="/modal" asChild>
+//       <Pressable className="opacity-80">
+//         {({ pressed }) => (
+//           <View className={cn(pressed ? 'opacity-50' : 'opacity-90')}>
+//             <Icon name="cog-outline" color={colors.foreground} />
+//           </View>
+//         )}
+//       </Pressable>
+//     </Link>
+//   );
+// }
 
 const MODAL_OPTIONS = {
   presentation: 'modal',

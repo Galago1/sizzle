@@ -18,7 +18,7 @@ export default function TabLayout() {
   const { colors } = useColorScheme();
   return (
     <>
-      <Stack.Screen options={{ title: 'Tabs' }} />
+      <Stack.Screen options={{ headerShown: false }} />
       <Tabs
         tabBar={TAB_BAR}
         screenOptions={{
