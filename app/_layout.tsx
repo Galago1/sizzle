@@ -1,15 +1,14 @@
 import '../global.css';
 import 'expo-dev-client';
 import { ThemeProvider as NavThemeProvider } from '@react-navigation/native';
-import { Icon } from '@roninoss/icons';
-import { Link, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, View, StyleSheet, Animated } from 'react-native';
+import { View, StyleSheet, Animated } from 'react-native';
 
 import { useEffect, useState } from 'react';
+import { useFonts } from 'expo-font';
 
 import { ThemeToggle } from '~/components/ThemeToggle';
-import { cn } from '~/lib/cn';
 import { useColorScheme, useInitialAndroidBarSync } from '~/lib/useColorScheme';
 import { NAV_THEME } from '~/theme';
 import { SplashScreen as CustomSplashScreen } from '~/components/SplashScreen';
@@ -26,24 +25,36 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   useInitialAndroidBarSync();
   const { colorScheme, isDarkColorScheme } = useColorScheme();
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(false);
   const fadeAnim = useState(new Animated.Value(1))[0];
 
-  useEffect(() => {
-    // Hide the native splash screen
-    SplashScreen.hideAsync();
-    
-    // Show custom splash screen for 3 seconds
-    const timer = setTimeout(() => {
-      Animated.timing(fadeAnim, {
-        toValue: 0,
-        duration: 1000,
-        useNativeDriver: true,
-      }).start(() => setShowSplash(false));
-    }, 3000);
+  const [fontsLoaded, fontError] = useFonts({
+    'Inter': require('../assets/fonts/Inter.ttf'),
+    // Add other font weights if needed
+    // 'Inter-Bold': require('../assets/fonts/Inter-Bold.otf'),
+  });
 
-    return () => clearTimeout(timer);
-  }, [fadeAnim]);
+  useEffect(() => {
+    if (fontsLoaded) {
+      setShowSplash(true);
+      const timer = setTimeout(() => {
+        Animated.timing(fadeAnim, {
+          toValue: 0,
+          duration: 1000,
+          useNativeDriver: true,
+        }).start(() => {
+          setShowSplash(false);
+          SplashScreen.hideAsync();
+        });
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [fontsLoaded, fadeAnim]);
+
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
 
   return (
     <View style={{ flex: 1 }}>

@@ -41,6 +41,9 @@ module.exports = {
           DEFAULT: withOpacity('card'),
           foreground: withOpacity('card-foreground'),
         },
+        fontFamily: {
+          sans: ['"Inter"', 'sans-serif'],
+        },
       },
       borderWidth: {
         hairline: hairlineWidth(),
