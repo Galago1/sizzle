@@ -20,14 +20,17 @@ export default function ForgotPasswordScreen() {
       <TouchableOpacity onPress={() => router.back()}>
         <MaterialIcons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
-      <Text className="mt-6 font-['Inter'] text-2xl text-gray-600">Forgot Password?</Text>
-      <Text className="mb-4 font-['Inter'] text-sm text-gray-600">
+      <Text className="mt-6 font-['Inter'] text-2xl font-light text-gray-600">
+        Forgot Password?
+      </Text>
+      <Text className="mb-4 font-['Inter'] text-sm font-normal text-gray-600">
         Please enter your email below and we will send a reset link
       </Text>
 
       <TextField
         className="rounded-xl bg-white font-['Inter']"
         label="Email"
+        labelClassName="font-normal text-gray-600 text-sm"
         placeholder="Enter your email"
         leftView={<MaterialIcons name="email" size={20} color="gray" />}
       />
