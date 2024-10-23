@@ -6,6 +6,7 @@ import { TextField } from '~/components/nativewindui/TextField';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { router, useNavigation } from 'expo-router';
 import Feather from '@expo/vector-icons/Feather';
+import Entypo from '@expo/vector-icons/Entypo';
 
 export default function ForgotPasswordScreen() {
   const navigation = useNavigation();
@@ -19,7 +20,7 @@ export default function ForgotPasswordScreen() {
   return (
     <SafeAreaView className="flex-1 px-4">
       <TouchableOpacity className="mb-8" onPress={() => router.back()}>
-        <MaterialIcons name="arrow-back" size={24} color="black" />
+        <Entypo name="chevron-thin-left" size={24} color="black" />
       </TouchableOpacity>
       <MaterialIcons name="login" size={24} color="black" />
       <Text className="mt-6 font-['Inter'] text-2xl font-light text-gray-600">Create Account </Text>

@@ -5,6 +5,7 @@ import { TextField } from '~/components/nativewindui/TextField';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router, useNavigation } from 'expo-router';
+import Entypo from '@expo/vector-icons/Entypo';
 
 export default function Screen() {
   const navigation = useNavigation();
@@ -18,7 +19,7 @@ export default function Screen() {
   return (
     <SafeAreaView className="flex-1 px-4">
       <TouchableOpacity className="mb-8" onPress={() => router.back()}>
-        <MaterialIcons name="arrow-back" size={24} color="black" />
+        <Entypo name="chevron-thin-left" size={24} color="black" />
       </TouchableOpacity>
       <MaterialIcons name="login" size={24} color="black" />
       <Text className="mt-4 font-['Inter'] text-2xl font-light text-gray-600">Login</Text>
