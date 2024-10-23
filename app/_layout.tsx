@@ -15,6 +15,8 @@ import { SplashScreen as CustomSplashScreen } from '~/components/SplashScreen';
 import * as SplashScreen from 'expo-splash-screen';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { PortalHost } from '@rn-primitives/portal';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -67,12 +69,15 @@ export default function RootLayout() {
 
       <GestureHandlerRootView style={{ flex: 1 }}>
         <BottomSheetModalProvider>
-          <NavThemeProvider value={NAV_THEME[colorScheme]}>
-            <Stack screenOptions={SCREEN_OPTIONS}>
-              <Stack.Screen name="(tabs)" options={INDEX_OPTIONS} />
-              <Stack.Screen name="modal" options={MODAL_OPTIONS} />
-            </Stack>
-          </NavThemeProvider>
+          <KeyboardProvider statusBarTranslucent navigationBarTranslucent>
+            <NavThemeProvider value={NAV_THEME[colorScheme]}>
+              <Stack screenOptions={SCREEN_OPTIONS}>
+                <Stack.Screen name="(tabs)" options={INDEX_OPTIONS} />
+                <Stack.Screen name="modal" options={MODAL_OPTIONS} />
+              </Stack>
+              <PortalHost />
+            </NavThemeProvider>
+          </KeyboardProvider>
         </BottomSheetModalProvider>
       </GestureHandlerRootView>
 
