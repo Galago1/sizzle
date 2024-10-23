@@ -5,7 +5,7 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { View, StyleSheet, Animated } from 'react-native';
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFonts } from 'expo-font';
 
 import { ThemeToggle } from '~/components/ThemeToggle';
@@ -13,6 +13,8 @@ import { useColorScheme, useInitialAndroidBarSync } from '~/lib/useColorScheme';
 import { NAV_THEME } from '~/theme';
 import { SplashScreen as CustomSplashScreen } from '~/components/SplashScreen';
 import * as SplashScreen from 'expo-splash-screen';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -63,12 +65,16 @@ export default function RootLayout() {
         style={isDarkColorScheme ? 'light' : 'dark'}
       />
 
-      <NavThemeProvider value={NAV_THEME[colorScheme]}>
-        <Stack screenOptions={SCREEN_OPTIONS}>
-          <Stack.Screen name="(tabs)" options={INDEX_OPTIONS} />
-          <Stack.Screen name="modal" options={MODAL_OPTIONS} />
-        </Stack>
-      </NavThemeProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <BottomSheetModalProvider>
+          <NavThemeProvider value={NAV_THEME[colorScheme]}>
+            <Stack screenOptions={SCREEN_OPTIONS}>
+              <Stack.Screen name="(tabs)" options={INDEX_OPTIONS} />
+              <Stack.Screen name="modal" options={MODAL_OPTIONS} />
+            </Stack>
+          </NavThemeProvider>
+        </BottomSheetModalProvider>
+      </GestureHandlerRootView>
 
       {showSplash && (
         <Animated.View style={[styles.splashContainer, { opacity: fadeAnim }]}>
