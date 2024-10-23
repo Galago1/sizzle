@@ -62,7 +62,7 @@ export default function ForgotPasswordScreen() {
           </ScrollView>
           <View className="p-4">
             <TouchableOpacity
-              className={`rounded-xl py-3 ${validateEmail(email) ? 'bg-gray-600' : 'bg-gray-400'}`}
+              className={`rounded-full py-3 ${validateEmail(email) ? 'bg-gray-600' : 'bg-gray-400'}`}
               onPress={handleSendRecovery}
               disabled={!validateEmail(email)}>
               <Text className="text-center font-['Inter'] font-semibold text-white">
