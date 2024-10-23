@@ -21,10 +21,10 @@ export default function Screen() {
         <MaterialIcons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
       <MaterialIcons name="login" size={24} color="black" />
-      <Text className="mt-4 text-2xl font-light">Login</Text>
-      <Text className="mb-4 text-sm">Continue where you left off</Text>
+      <Text className="mt-4 font-['Inter'] text-2xl">Login</Text>
+      <Text className="mb-4 font-['Inter'] text-sm">Continue where you left off</Text>
       <TextField
-        className=" rounded-xl bg-white"
+        className="rounded-xl bg-white"
         label="Email"
         leftView={<MaterialIcons name="email" size={20} color="gray" />}
       />
@@ -35,16 +35,20 @@ export default function Screen() {
         leftView={<MaterialIcons name="password" size={20} color="gray" />}
       />
       <TouchableOpacity onPress={() => router.push('/ForgotPassword')}>
-        <Text className="p-1 text-sm font-semibold text-gray-600 underline">Forgot Password</Text>
+        <Text className="p-1 font-['Inter'] text-sm font-semibold text-gray-600 underline">
+          Forgot Password
+        </Text>
       </TouchableOpacity>
       <View className="mb-4 flex-1 justify-end">
         <TouchableOpacity className="rounded-xl bg-gray-600 py-3">
-          <Text className="text-center font-semibold text-white">Login</Text>
+          <Text className="text-center font-['Inter'] font-semibold text-white">Login</Text>
         </TouchableOpacity>
         <View className="mt-4 flex-row justify-center">
-          <Text className="text-sm">Not a member? </Text>
+          <Text className="font-['Inter'] text-sm">Not a member? </Text>
           <TouchableOpacity onPress={() => router.push('/SignUp')}>
-            <Text className="text-sm font-semibold text-gray-600 underline">Sign up</Text>
+            <Text className="font-['Inter'] text-sm font-semibold text-gray-600 underline">
+              Sign up
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -22,27 +22,27 @@ export default function ForgotPasswordScreen() {
         <MaterialIcons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
       <MaterialIcons name="login" size={24} color="black" />
-      <Text className="mt-6 text-2xl text-gray-600">Create Account </Text>
-      <Text className="mb-4 text-sm text-gray-600">
+      <Text className="mt-6 font-['Inter'] text-2xl text-gray-600">Create Account </Text>
+      <Text className="mb-4 font-['Inter'] text-sm text-gray-600">
         Start your journey to becoming your best self
       </Text>
 
       <TextField
-        className="rounded-xl bg-white"
+        className="rounded-xl bg-white font-['Inter']"
         label="Name"
         containerClassName="mb-4"
         placeholder="Enter your name"
         leftView={<Feather name="user" size={24} color="gray" />}
       />
       <TextField
-        className="rounded-xl bg-white"
+        className="rounded-xl bg-white font-['Inter']"
         label="Email"
         containerClassName="mb-4"
         placeholder="Enter your email"
         leftView={<MaterialIcons name="email" size={20} color="gray" />}
       />
       <TextField
-        className="rounded-xl bg-white"
+        className="rounded-xl bg-white font-['Inter']"
         label="Password"
         placeholder="Enter a password"
         secureTextEntry
@@ -51,20 +51,37 @@ export default function ForgotPasswordScreen() {
 
       <View className="mb-8 flex-1 justify-end">
         <View className="mt-4 flex-row justify-center">
-          <Text className="text-sm"> By continuing, you agree to our </Text>
+          <Text className="font-['Inter'] text-xs text-gray-600">
+            {' '}
+            By continuing, you agree to our{' '}
+          </Text>
           <TouchableOpacity onPress={() => router.push('/SignUp')}>
-            <Text className="text-sm font-semibold text-gray-600 underline">Terms of Service</Text>
+            <Text className="font-['Inter'] text-xs font-semibold text-gray-600 underline">
+              Terms of Service
+            </Text>
           </TouchableOpacity>
         </View>
-        <View className="flex-row justify-center">
-          <Text className="text-sm"> and </Text>
+        <View className="mb-1 flex-row justify-center">
+          <Text className="font-['Inter'] text-xs text-gray-600"> & </Text>
           <TouchableOpacity onPress={() => router.push('/SignUp')}>
-            <Text className="text-sm font-semibold text-gray-600 underline">Privacy Policy</Text>
+            <Text className="font-['Inter'] text-xs font-semibold text-gray-600 underline">
+              Privacy Policy
+            </Text>
           </TouchableOpacity>
         </View>
         <TouchableOpacity className="rounded-xl bg-gray-600 py-3">
-          <Text className="text-center font-semibold text-white">Create My Account</Text>
+          <Text className="text-center font-['Inter'] font-semibold text-white">
+            Create My Account
+          </Text>
         </TouchableOpacity>
+        <View className="mt-4 flex-row justify-center">
+          <Text className="font-['Inter'] text-xs text-gray-600">Already have an account? </Text>
+          <TouchableOpacity onPress={() => router.push('/SignUp')}>
+            <Text className="font-['Inter'] text-sm font-semibold text-gray-600 underline">
+              Login
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
