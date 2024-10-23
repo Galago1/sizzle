@@ -1852,14 +1852,23 @@
   dependencies:
     web-streams-polyfill "^3.1.1"
 
-"@rn-primitives/hooks@^1.1.0":
+"@rn-primitives/avatar@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@rn-primitives/avatar/-/avatar-1.1.0.tgz#c22c7ccb50b4c34f4256452ac7e1150f10a0a129"
+  integrity sha512-GqhsQHeY7OP9oe3MZkl1Z0IbhIiuQX4+FxafoRK/Aes2m5386nMGK0NBaZBJy06WnFQBN52C8yq+LYv27sA86A==
+  dependencies:
+    "@rn-primitives/hooks" "1.1.0"
+    "@rn-primitives/slot" "1.1.0"
+    "@rn-primitives/types" "1.1.0"
+
+"@rn-primitives/hooks@1.1.0", "@rn-primitives/hooks@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@rn-primitives/hooks/-/hooks-1.1.0.tgz#2ab58a3d444c1d1d0f47a5e92e91e03cebbdfa39"
   integrity sha512-+WP4i395UDXZueL6PE0PiyLgheD4EbZ0ONgVaHjbrWjGKalfXuCyVNeaN79y3Aw9sY+SYQm7P9RckBAgi0C5xQ==
   dependencies:
     "@rn-primitives/types" "1.1.0"
 
-"@rn-primitives/slot@^1.1.0":
+"@rn-primitives/slot@1.1.0", "@rn-primitives/slot@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@rn-primitives/slot/-/slot-1.1.0.tgz#954086820fa71ddcda948e5b2b34c0bfa1cad4d4"
   integrity sha512-/6LkEPMoGGyJiCAYo3MTCy9letbH6SIm5Dw6wal/ypq3Jvar9llYJstIP2KSZNhx3PmZMN1a581KVgNZ2Jyt5g==
