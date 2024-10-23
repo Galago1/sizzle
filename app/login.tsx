@@ -27,13 +27,13 @@ export default function Screen() {
         Continue where you left off
       </Text>
       <TextField
-        className="rounded-xl bg-white"
+        className="rounded-xl bg-white font-['Inter']"
         labelClassName="font-normal text-gray-600 text-sm"
         label="Email"
         leftView={<MaterialIcons name="email" size={20} color="gray" />}
       />
       <TextField
-        className="rounded-xl bg-white"
+        className="rounded-xl bg-white font-['Inter']"
         label="Password"
         labelClassName="font-normal text-gray-600 text-sm"
         secureTextEntry
@@ -45,7 +45,7 @@ export default function Screen() {
         </Text>
       </TouchableOpacity>
       <View className="mb-4 flex-1 justify-end">
-        <TouchableOpacity className="rounded-xl bg-gray-600 py-3">
+        <TouchableOpacity className="rounded-full bg-gray-600 py-3">
           <Text className="text-center font-['Inter'] font-semibold text-white">Login</Text>
         </TouchableOpacity>
         <View className="mt-4 flex-row justify-center">

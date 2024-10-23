@@ -1,19 +1,29 @@
+import { router } from 'expo-router';
 import * as React from 'react';
-import { SafeAreaView, TouchableOpacity } from 'react-native';
+import { SafeAreaView, TouchableOpacity, View } from 'react-native';
+import {
+  Card,
+  CardContent,
+  CardTitle,
+  CardSubtitle,
+  CardFooter,
+} from '~/components/nativewindui/Card';
 import { Text } from '~/components/nativewindui/Text';
 import { TopNav } from '~/components/TopNav';
 
 export default function Screen() {
   return (
     <SafeAreaView className="flex-1">
-      <TopNav title="Settings">
-        <TouchableOpacity className="mr-4">
-          <Text className="text-blue-500">Button 1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text className="text-blue-500">Button 2</Text>
-        </TouchableOpacity>
-      </TopNav>
+      <View className="p-4">
+        <TopNav title="Settings">
+          <TouchableOpacity className="mr-4">
+            <Text className="text-blue-500">Button 1</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Text className="text-blue-500">Button 2</Text>
+          </TouchableOpacity>
+        </TopNav>
+      </View>
     </SafeAreaView>
   );
 }
