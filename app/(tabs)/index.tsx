@@ -21,8 +21,8 @@ export default function Screen() {
   };
 
   return (
-    <SafeAreaView className="flex-1">
-      <View className="p-4">
+    <SafeAreaView>
+      <View className="h-full p-4">
         <TopNav title="Welcome">
           <TouchableOpacity onPress={handleButton1Press}>
             <Text className="mr-4 text-blue-500">Button 1</Text>
@@ -31,7 +31,7 @@ export default function Screen() {
             <Text className="text-blue-500">Button 2</Text>
           </TouchableOpacity>
         </TopNav>
-        <View className="mx-4 flex-1 justify-center pt-4">
+        <View className="flex-1 items-center justify-center">
           <Card>
             <CardContent>
               <CardTitle>Welcome to Sizzle</CardTitle>
