@@ -60,7 +60,7 @@ export default function Screen() {
               </TouchableOpacity>
             </TopNav>
             <View className="mt-4">
-              <Card>
+              <Card rootClassName="shadow-none">
                 <CardContent>
                   <Text className="font-['Inter'] font-light">Action Sheet</Text>
                   <TouchableOpacity
@@ -104,7 +104,7 @@ export default function Screen() {
               </Card>
             </View>
             <View className="mt-4">
-              <Card>
+              <Card rootClassName="shadow-none">
                 <CardContent>
                   <Text className="font-['Inter'] font-light">Bottom Sheet</Text>
                   <TouchableOpacity
@@ -118,7 +118,7 @@ export default function Screen() {
               </Card>
             </View>
             <View className="mt-4">
-              <Card>
+              <Card rootClassName="shadow-none">
                 <CardContent>
                   <Text className="font-['Inter'] font-light">Context Menu</Text>
                   <ContextMenu
@@ -150,7 +150,7 @@ export default function Screen() {
               </Card>
             </View>
             <View className="mt-4">
-              <Card>
+              <Card rootClassName="shadow-none">
                 <CardContent>
                   <Text className="font-['Inter'] font-light">Date Picker</Text>
                   <View className="items-center">
@@ -166,7 +166,7 @@ export default function Screen() {
               </Card>
             </View>
             <View className="mt-4">
-              <Card>
+              <Card rootClassName="shadow-none">
                 <CardContent>
                   <Text className="font-['Inter'] font-light">Dropdown Menu</Text>
                   <DropdownMenu
@@ -199,7 +199,7 @@ export default function Screen() {
               </Card>
             </View>
             <View className="mt-4">
-              <Card rootClassName="mt-2">
+              <Card rootClassName="mt-2 shadow-none">
                 <CardContent>
                   <Text className="font-['Inter'] font-light">Form</Text>
                   <Form>
@@ -222,7 +222,7 @@ export default function Screen() {
               </Card>
             </View>
             <View className="mt-4">
-              <Card>
+              <Card rootClassName="shadow-none">
                 <CardContent>
                   <Text className="font-['Inter'] font-light">Picker</Text>
                   <Picker
@@ -235,7 +235,7 @@ export default function Screen() {
               </Card>
             </View>
             <View className="mt-4">
-              <Card>
+              <Card rootClassName="shadow-none">
                 <CardContent>
                   <Text className="font-['Inter'] font-light">Search Input</Text>
                   <SearchInput />
@@ -243,7 +243,7 @@ export default function Screen() {
               </Card>
             </View>
             <View className="mt-4">
-              <Card>
+              <Card rootClassName="shadow-none">
                 <CardContent>
                   <Text className="font-['Inter'] font-light">Segmented Control</Text>
                   <View className="mt-2">
@@ -259,7 +259,7 @@ export default function Screen() {
               </Card>
             </View>
             <View className="mt-4">
-              <Card>
+              <Card rootClassName="shadow-none">
                 <CardContent>
                   <Text className="font-['Inter'] font-light">Toolbar</Text>
                   {/* <Toolbar
