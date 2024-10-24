@@ -3,7 +3,14 @@ import { isLoading } from 'expo-font';
 import * as React from 'react';
 import { Animated, Platform, SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native';
 import { colors } from 'react-native-keyboard-controller/lib/typescript/components/KeyboardToolbar/colors';
-import { FadeIn } from 'react-native-reanimated';
+import {
+  FadeIn,
+  FadeInUp,
+  FadeOutDown,
+  LayoutAnimationConfig,
+  ZoomInEasyUp,
+  ZoomOutEasyDown,
+} from 'react-native-reanimated';
 import { ActivityIndicator } from '~/components/nativewindui/ActivityIndicator';
 import { Alert } from '~/components/nativewindui/Alert';
 import { Avatar, AvatarImage, AvatarFallback } from '~/components/nativewindui/Avatar';
@@ -15,13 +22,19 @@ import { TopNav } from '~/components/TopNav';
 import { useColorScheme } from '~/lib/useColorScheme';
 import { Checkbox } from '~/components/nativewindui/Checkbox';
 import { ProgressIndicator } from '~/components/nativewindui/ProgressIndicator';
-import * as StoreReview from 'expo-store-review';
+import { Slider } from '~/components/nativewindui/Slider';
+import { Stepper } from '~/components/nativewindui/Stepper';
+import { TextField } from '~/components/nativewindui/TextField';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Toggle } from '~/components/nativewindui/Toggle';
 
 export default function Screen() {
   const { colors } = useColorScheme();
   const [isLoading, setIsLoading] = React.useState(false);
   const [progress, setProgress] = React.useState(13);
+  const [count, setCount] = React.useState(0);
   let id: ReturnType<typeof setInterval> | null = null;
+
   React.useEffect(() => {
     if (!id) {
       id = setInterval(() => {
@@ -32,6 +45,17 @@ export default function Screen() {
       if (id) clearInterval(id);
     };
   }, []);
+
+  function subtract() {
+    setCount((prev) => (prev > 0 ? prev - 1 : 0));
+  }
+
+  function add() {
+    setCount((prev) => prev + 1);
+  }
+
+  const [switchValue, setSwitchValue] = React.useState(true);
+
   return (
     <SafeAreaView className="flex-1">
       <View className="p-4">
@@ -45,7 +69,7 @@ export default function Screen() {
         </TopNav>
       </View>
       <View className="mx-4">
-        <ScrollView>
+        <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
           <View>
             <Card rootClassName="shadow-none">
               <CardContent>
@@ -196,11 +220,12 @@ export default function Screen() {
                 <Text className="font-['Inter'] font-light">Ratings Indicator</Text>
                 <TouchableOpacity
                   className="mt-2 rounded-full bg-gray-600 py-3"
-                  onPress={async () => {
-                    if (await StoreReview.hasAction()) {
-                      await StoreReview.requestReview();
-                    }
-                  }}>
+                  // onPress={async () => {
+                  //   if (await StoreReview.hasAction()) {
+                  //     await StoreReview.requestReview();
+                  //   }
+                  // }}
+                >
                   <Text className="text-center font-['Inter'] font-semibold text-white">
                     Show Ratings Indicator
                   </Text>
@@ -212,6 +237,7 @@ export default function Screen() {
             <Card rootClassName="shadow-none">
               <CardContent>
                 <Text className="font-['Inter'] font-light">Slider</Text>
+                <Slider value={0.5} />
               </CardContent>
             </Card>
           </View>
@@ -219,6 +245,16 @@ export default function Screen() {
             <Card rootClassName="shadow-none">
               <CardContent>
                 <Text className="font-['Inter'] font-light">Stepper</Text>
+                <View className="flex-1 items-center justify-center ">
+                  <View className="flex-row items-center gap-1">
+                    <Text>Stepper: </Text>
+                    <FlipCounter count={count} />
+                  </View>
+                  <Stepper
+                    subtractButton={{ disabled: count === 0, onPress: subtract }}
+                    addButton={{ onPress: add }}
+                  />
+                </View>
               </CardContent>
             </Card>
           </View>
@@ -226,6 +262,39 @@ export default function Screen() {
             <Card rootClassName="shadow-none">
               <CardContent>
                 <Text className="font-['Inter'] font-light">Text</Text>
+                <Text variant="largeTitle" className="text-center">
+                  Large Title
+                </Text>
+                <Text variant="title1" className="text-center">
+                  Title 1
+                </Text>
+                <Text variant="title2" className="text-center">
+                  Title 2
+                </Text>
+                <Text variant="title3" className="text-center">
+                  Title 3
+                </Text>
+                <Text variant="heading" className="text-center">
+                  Heading
+                </Text>
+                <Text variant="body" className="text-center">
+                  Body
+                </Text>
+                <Text variant="callout" className="text-center">
+                  Callout
+                </Text>
+                <Text variant="subhead" className="text-center">
+                  Subhead
+                </Text>
+                <Text variant="footnote" className="text-center">
+                  Footnote
+                </Text>
+                <Text variant="caption1" className="text-center">
+                  Caption 1
+                </Text>
+                <Text variant="caption2" className="text-center">
+                  Caption 2
+                </Text>
               </CardContent>
             </Card>
           </View>
@@ -233,6 +302,11 @@ export default function Screen() {
             <Card rootClassName="shadow-none">
               <CardContent>
                 <Text className="font-['Inter'] font-light">Text Field</Text>
+                <TextField
+                  leftView={<MaterialIcons name="email" size={20} color="gray" />}
+                  label="Email"
+                  className="bg-gray-100"
+                />
               </CardContent>
             </Card>
           </View>
@@ -240,11 +314,35 @@ export default function Screen() {
             <Card rootClassName="shadow-none">
               <CardContent>
                 <Text className="font-['Inter'] font-light">Toggle</Text>
+                <View className="flex-1 items-center">
+                  <Toggle value={switchValue} onValueChange={setSwitchValue} />
+                </View>
               </CardContent>
             </Card>
           </View>
         </ScrollView>
       </View>
     </SafeAreaView>
+  );
+}
+
+function FlipCounter({ count }: { count: number }) {
+  const id = React.useId();
+  return (
+    <View className="overflow-hidden">
+      <LayoutAnimationConfig skipEntering>
+        <Animated.View
+          entering={FadeInUp.duration(120)}
+          exiting={FadeOutDown.duration(120)}
+          key={`${id}-wrapper-${count}`}>
+          <Animated.View
+            key={`${id}-inner-${count}`}
+            entering={ZoomInEasyUp.duration(120)}
+            exiting={ZoomOutEasyDown.duration(120)}>
+            <Text className="font-medium text-primary">{count}</Text>
+          </Animated.View>
+        </Animated.View>
+      </LayoutAnimationConfig>
+    </View>
   );
 }
