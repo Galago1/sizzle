@@ -16,6 +16,7 @@ import { Image } from 'expo-image';
 import { Button } from '~/components/Button';
 import { ESTIMATED_ITEM_HEIGHT, List, ListItem } from '~/components/nativewindui/List';
 import BarChart from '~/components/nativewindui/BarChart';
+import RectangleChart from '~/components/nativewindui/RectangleChart';
 
 export default function Screen() {
   // Add the share function
@@ -159,7 +160,31 @@ export default function Screen() {
             <Card rootClassName="shadow-none">
               <CardContent>
                 <Text className="font-['Inter'] font-light">Bar Chart</Text>
-                <BarChart />
+                <BarChart
+                  data={[
+                    { day: 'SUN', total: 10, completed: 6 },
+                    { day: 'MON', total: 12, completed: 8 },
+                    { day: 'TUE', total: 18, completed: 10 },
+                    { day: 'WED', total: 16, completed: 12 },
+                    { day: 'THR', total: 10, completed: 7 },
+                    { day: 'FRI', total: 18, completed: 13 },
+                    { day: 'SAT', total: 18, completed: 18 },
+                  ]}
+                />
+              </CardContent>
+            </Card>
+          </View>
+          <View className="mt-4">
+            <Card rootClassName="shadow-none">
+              <CardContent>
+                <Text className="font-['Inter'] font-light">Rectangle Chart</Text>
+                <RectangleChart
+                  data={[
+                    0.7, 0.3, 0.5, 0.8, 0.6, 0.4, 0.9, 0.5, 0.6, 0.7, 0.4, 0.8, 0.3, 0.5, 0.9, 0.4,
+                    0.6, 0.3, 0.7, 0.5, 0.8, 0.6, 0.8, 0.5, 0.3, 0.7, 0.4, 0.9, 0.5, 0.7, 0.6, 0.8,
+                    0.4, 0.2, 0.1,
+                  ]}
+                />
               </CardContent>
             </Card>
           </View>

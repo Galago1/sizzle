@@ -4,17 +4,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Svg, { Rect, Path } from 'react-native-svg';
 
-const BarChart = () => {
-  const data = [
-    { day: 'SUN', total: 10, completed: 6 },
-    { day: 'MON', total: 12, completed: 8 },
-    { day: 'TUE', total: 18, completed: 10 },
-    { day: 'WED', total: 16, completed: 12 },
-    { day: 'THR', total: 10, completed: 7 },
-    { day: 'FRI', total: 18, completed: 13 },
-    { day: 'SAT', total: 18, completed: 18 },
-  ];
-
+const BarChart = ({ data }) => {
   return (
     <View style={styles.container}>
       {data.map((item, index) => (
