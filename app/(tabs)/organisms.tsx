@@ -15,6 +15,7 @@ import { TopNav } from '~/components/TopNav';
 import { Image } from 'expo-image';
 import { Button } from '~/components/Button';
 import { ESTIMATED_ITEM_HEIGHT, List, ListItem } from '~/components/nativewindui/List';
+import BarChart from '~/components/nativewindui/BarChart';
 
 export default function Screen() {
   // Add the share function
@@ -151,6 +152,14 @@ export default function Screen() {
                   }}
                   keyExtractor={(item) => item.id}
                 />
+              </CardContent>
+            </Card>
+          </View>
+          <View className="mt-4">
+            <Card rootClassName="shadow-none">
+              <CardContent>
+                <Text className="font-['Inter'] font-light">Bar Chart</Text>
+                <BarChart />
               </CardContent>
             </Card>
           </View>
