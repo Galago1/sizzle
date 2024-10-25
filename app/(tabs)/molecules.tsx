@@ -218,6 +218,7 @@ export default function Screen() {
                 <CardContent>
                   <Text className="font-['Inter'] font-light">Picker</Text>
                   <Picker
+                    className=""
                     selectedValue={picker}
                     onValueChange={(itemValue) => setPicker(itemValue)}>
                     <PickerItem label="Red" value="red" color="red" />

@@ -284,7 +284,7 @@ export default function Screen() {
                 <TextField
                   leftView={<MaterialIcons name="email" size={20} color="gray" />}
                   label="Email"
-                  className="bg-gray-100"
+                  className="bg-gray-800 dark:bg-gray-800"
                 />
               </CardContent>
             </Card>

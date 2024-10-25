@@ -10,7 +10,7 @@ interface TopNavProps {
 
 export function TopNav({ title, children }: TopNavProps) {
   return (
-    <View className="flex-row items-center justify-between bg-gray-100 ">
+    <View className="flex-row items-center justify-between ">
       <Text className="text-2xl font-light">{title}</Text>
       <View className="flex-row">{children}</View>
     </View>
