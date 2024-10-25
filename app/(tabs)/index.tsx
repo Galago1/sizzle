@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { SafeAreaView, View, TouchableOpacity } from 'react-native';
-import { Text } from '~/components/nativewindui/Text';
+
+import { TopNav } from '~/components/TopNav';
 import {
   Card,
   CardContent,
@@ -9,7 +10,7 @@ import {
   CardSubtitle,
   CardTitle,
 } from '~/components/nativewindui/Card';
-import { TopNav } from '~/components/TopNav';
+import { Text } from '~/components/nativewindui/Text';
 
 export default function Screen() {
   const handleButton1Press = () => {

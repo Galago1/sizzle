@@ -2,7 +2,11 @@ import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { Svg, Rect } from 'react-native-svg';
 
-const RectangleChart = ({ data }) => {
+interface RectangleChartProps {
+  data: number[];
+}
+
+const RectangleChart: React.FC<RectangleChartProps> = ({ data }) => {
   const renderWeek = (startIndex: number) => (
     <View key={startIndex} className="mb-1 flex-row justify-between">
       {data.slice(startIndex, startIndex + 7).map((value, index) => (

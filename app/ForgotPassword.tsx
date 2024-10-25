@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { View, TouchableOpacity, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Form, FormItem, FormSection } from '~/components/nativewindui/Form';
-import { Text } from '~/components/nativewindui/Text';
-import { TextField } from '~/components/nativewindui/TextField';
+import Entypo from '@expo/vector-icons/Entypo';
+import Feather from '@expo/vector-icons/Feather';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { router, useNavigation } from 'expo-router';
-import Feather from '@expo/vector-icons/Feather';
+import * as React from 'react';
 import { useState } from 'react';
-import Entypo from '@expo/vector-icons/Entypo';
+import { View, TouchableOpacity, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { Text } from '~/components/nativewindui/Text';
+import { TextField } from '~/components/nativewindui/TextField';
 
 export default function ForgotPasswordScreen() {
   const navigation = useNavigation();
@@ -57,7 +57,7 @@ export default function ForgotPasswordScreen() {
               leftView={<MaterialIcons name="email" size={20} color="gray" />}
               value={email}
               onChangeText={(text) => setEmail(text)}
-              error={emailError}
+              errorMessage={emailError}
             />
           </ScrollView>
           <View className="p-4">

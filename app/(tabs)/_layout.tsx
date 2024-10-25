@@ -1,8 +1,8 @@
-import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Stack, Tabs } from 'expo-router';
 import * as React from 'react';
 import { Platform, Pressable, PressableProps, View } from 'react-native';

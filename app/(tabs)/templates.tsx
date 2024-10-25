@@ -1,17 +1,17 @@
+import { useRouter } from 'expo-router';
 import * as React from 'react';
 import { SafeAreaView, TouchableOpacity, View } from 'react-native';
-import { useRouter } from 'expo-router';
+import { ScrollView } from 'react-native-gesture-handler';
+
+import { TopNav } from '~/components/TopNav';
 import {
   Card,
   CardContent,
   CardTitle,
   CardSubtitle,
   CardFooter,
-  CardDescription,
 } from '~/components/nativewindui/Card';
 import { Text } from '~/components/nativewindui/Text';
-import { TopNav } from '~/components/TopNav';
-import { ScrollView } from 'react-native-gesture-handler';
 
 export default function Screen() {
   const router = useRouter();

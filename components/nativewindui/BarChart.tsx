@@ -2,9 +2,19 @@
 
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Svg, { Rect, Path } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
-const BarChart = ({ data }) => {
+interface DataItem {
+  day: string;
+  total: number;
+  completed: number;
+}
+
+interface BarChartProps {
+  data: DataItem[];
+}
+
+const BarChart: React.FC<BarChartProps> = ({ data }) => {
   return (
     <View style={styles.container}>
       {data.map((item, index) => (

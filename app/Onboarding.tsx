@@ -1,9 +1,10 @@
+import { useNavigation, useRouter } from 'expo-router';
 import * as React from 'react';
 import { View, TouchableOpacity, Image, Dimensions } from 'react-native';
-import { Text } from '~/components/nativewindui/Text';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation, useRouter } from 'expo-router';
+
 import { Sheet, useSheetRef } from '~/components/nativewindui/Sheet';
+import { Text } from '~/components/nativewindui/Text';
 
 const { width, height } = Dimensions.get('window');
 

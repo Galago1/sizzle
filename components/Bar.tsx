@@ -1,8 +1,9 @@
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Href, Link } from 'expo-router';
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
+
 import { Text } from '~/components/nativewindui/Text';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Link } from 'expo-router';
 
 interface BarProps {
   startAdornment?: React.ReactNode; // Renamed from icon and made optional
@@ -14,7 +15,7 @@ interface BarProps {
 
 export function Bar({ startAdornment, title, link, endAdornment, className }: BarProps) {
   return (
-    <Link href={link} asChild>
+    <Link href={link as Href<string>} asChild>
       <TouchableOpacity
         className={`flex-row items-center justify-between rounded-lg bg-white p-4 ${className || ''}`}>
         <View className="flex-1 flex-row items-center">

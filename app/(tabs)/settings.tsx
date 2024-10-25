@@ -1,15 +1,8 @@
-import { router } from 'expo-router';
 import * as React from 'react';
 import { SafeAreaView, TouchableOpacity, View } from 'react-native';
-import {
-  Card,
-  CardContent,
-  CardTitle,
-  CardSubtitle,
-  CardFooter,
-} from '~/components/nativewindui/Card';
-import { Text } from '~/components/nativewindui/Text';
+
 import { TopNav } from '~/components/TopNav';
+import { Text } from '~/components/nativewindui/Text';
 
 export default function Screen() {
   return (

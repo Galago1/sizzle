@@ -1,16 +1,17 @@
 import { Entypo } from '@expo/vector-icons';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { router, useNavigation } from 'expo-router';
 import React from 'react';
 import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 import AvatarAndText from '~/components/AvatarAndText';
 import { Bar, BarGroup } from '~/components/Bar';
+import { TopNav } from '~/components/TopNav';
 import { Card, CardContent } from '~/components/nativewindui/Card';
 import { Text } from '~/components/nativewindui/Text';
-import { TopNav } from '~/components/TopNav';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import AntDesign from '@expo/vector-icons/AntDesign';
 import { Toggle } from '~/components/nativewindui/Toggle';
 
 export default function UserProfile() {

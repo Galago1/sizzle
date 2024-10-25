@@ -1,6 +1,10 @@
+import { Image } from 'expo-image';
 import * as React from 'react';
 import { SafeAreaView, TouchableOpacity, View, Share, Platform, ScrollView } from 'react-native';
-import { AdaptiveSearchHeader } from '~/components/nativewindui/AdaptiveSearchHeader';
+
+import { Button } from '~/components/Button';
+import { TopNav } from '~/components/TopNav';
+import BarChart from '~/components/nativewindui/BarChart';
 import {
   Card,
   CardContent,
@@ -10,13 +14,9 @@ import {
   CardSubtitle,
   CardTitle,
 } from '~/components/nativewindui/Card';
-import { Text } from '~/components/nativewindui/Text';
-import { TopNav } from '~/components/TopNav';
-import { Image } from 'expo-image';
-import { Button } from '~/components/Button';
 import { ESTIMATED_ITEM_HEIGHT, List, ListItem } from '~/components/nativewindui/List';
-import BarChart from '~/components/nativewindui/BarChart';
 import RectangleChart from '~/components/nativewindui/RectangleChart';
+import { Text } from '~/components/nativewindui/Text';
 
 export default function Screen() {
   // Add the share function

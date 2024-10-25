@@ -1,3 +1,4 @@
+import { MaterialIcons } from '@expo/vector-icons';
 import { Icon } from '@roninoss/icons';
 import * as React from 'react';
 import { Animated, Platform, SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native';
@@ -9,22 +10,22 @@ import {
   ZoomInEasyUp,
   ZoomOutEasyDown,
 } from 'react-native-reanimated';
+
+import { TopNav } from '~/components/TopNav';
 import { ActivityIndicator } from '~/components/nativewindui/ActivityIndicator';
 import { Alert } from '~/components/nativewindui/Alert';
 import { Avatar, AvatarImage, AvatarFallback } from '~/components/nativewindui/Avatar';
 import { Badge } from '~/components/nativewindui/Badge';
 import { Button } from '~/components/nativewindui/Button';
 import { Card, CardContent } from '~/components/nativewindui/Card';
-import { Text } from '~/components/nativewindui/Text';
-import { TopNav } from '~/components/TopNav';
-import { useColorScheme } from '~/lib/useColorScheme';
 import { Checkbox } from '~/components/nativewindui/Checkbox';
 import { ProgressIndicator } from '~/components/nativewindui/ProgressIndicator';
 import { Slider } from '~/components/nativewindui/Slider';
 import { Stepper } from '~/components/nativewindui/Stepper';
+import { Text } from '~/components/nativewindui/Text';
 import { TextField } from '~/components/nativewindui/TextField';
-import { MaterialIcons } from '@expo/vector-icons';
 import { Toggle } from '~/components/nativewindui/Toggle';
+import { useColorScheme } from '~/lib/useColorScheme';
 
 export default function Screen() {
   const { colors } = useColorScheme();
@@ -173,7 +174,7 @@ export default function Screen() {
                     }}
                     variant="tonal">
                     {isLoading && (
-                      <Animated.View entering={FadeIn.delay(200)}>
+                      <Animated.View>
                         <ActivityIndicator size="small" />
                       </Animated.View>
                     )}
@@ -207,7 +208,7 @@ export default function Screen() {
             <Card rootClassName="shadow-none">
               <CardContent>
                 <Text className="font-['Inter'] font-light">Progress Indicator</Text>
-                <ProgressIndicator value={progress} className={'mt-2'} />
+                <ProgressIndicator value={progress} className="mt-2" />
               </CardContent>
             </Card>
           </View>
@@ -309,14 +310,8 @@ function FlipCounter({ count }: { count: number }) {
   return (
     <View className="overflow-hidden">
       <LayoutAnimationConfig skipEntering>
-        <Animated.View
-          entering={FadeInUp.duration(120)}
-          exiting={FadeOutDown.duration(120)}
-          key={`${id}-wrapper-${count}`}>
-          <Animated.View
-            key={`${id}-inner-${count}`}
-            entering={ZoomInEasyUp.duration(120)}
-            exiting={ZoomOutEasyDown.duration(120)}>
+        <Animated.View key={`${id}-wrapper-${count}`}>
+          <Animated.View key={`${id}-inner-${count}`}>
             <Text className="font-medium text-primary">{count}</Text>
           </Animated.View>
         </Animated.View>
