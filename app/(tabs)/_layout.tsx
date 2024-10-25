@@ -32,14 +32,7 @@ export default function TabLayout() {
             height: 100,
             borderWidth: 1,
             borderColor: '#E7E8E9',
-
             borderTopColor: '#E7E8E9',
-          },
-          tabBarLabelStyle: {
-            paddingBottom: 12,
-          },
-          tabBarIconStyle: {
-            marginBottom: -6,
           },
         }}>
         <Tabs.Screen
@@ -55,9 +48,7 @@ export default function TabLayout() {
           name="atoms"
           options={{
             title: 'Atoms',
-            tabBarIcon: ({ color, size }) => (
-              <FontAwesome5 name="atom"  color={color} size={size} />
-            ),
+            tabBarIcon: ({ color, size }) => <FontAwesome5 name="atom" color={color} size={size} />,
           }}
         />
         <Tabs.Screen
@@ -65,16 +56,16 @@ export default function TabLayout() {
           options={{
             title: 'Molecules',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="molecule"  color={color} size={size} />
+              <MaterialCommunityIcons name="molecule" color={color} size={size} />
             ),
           }}
         />
-         <Tabs.Screen
+        <Tabs.Screen
           name="organisms"
           options={{
             title: 'Organisms',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="pig-variant-outline"  color={color} size={size} />
+              <MaterialCommunityIcons name="pig-variant-outline" color={color} size={size} />
             ),
           }}
         />
@@ -83,7 +74,7 @@ export default function TabLayout() {
           options={{
             title: 'Templates',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="application-outline"  color={color} size={size} />
+              <MaterialCommunityIcons name="application-outline" color={color} size={size} />
             ),
           }}
         />
@@ -211,11 +202,7 @@ function MaterialTabItem({
       <View className="h-8 w-16 items-center justify-center overflow-hidden rounded-full ">
         <Animated.View style={animatedStyle} className="bg-secondary/70 dark:bg-secondary" />
         <View>
-          <Ionicons
-            name={name}
-            size={24}
-            color={isFocused ? colors.foreground : colors.grey2}
-          />
+          <Ionicons name={name} size={24} color={isFocused ? colors.foreground : colors.grey2} />
           {!!badge && <Badge>{badge}</Badge>}
         </View>
       </View>
