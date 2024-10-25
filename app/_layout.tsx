@@ -9,7 +9,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Animated } from 'react-native';
+import { View, Animated, Dimensions } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 
@@ -31,11 +31,11 @@ export default function RootLayout() {
   const { colorScheme, isDarkColorScheme } = useColorScheme();
   const [showSplash, setShowSplash] = useState(false);
   const fadeAnim = useState(new Animated.Value(1))[0];
+  const { width, height } = Dimensions.get('window');
 
   const [fontsLoaded, fontError] = useFonts({
     Inter: require('../assets/fonts/Inter.ttf'),
     // Add other font weights if needed
-    // 'Inter-Bold': require('../assets/fonts/Inter-Bold.otf'),
   });
 
   useEffect(() => {
@@ -84,7 +84,18 @@ export default function RootLayout() {
       </GestureHandlerRootView>
 
       {showSplash && (
-        <Animated.View style={[styles.splashContainer, { opacity: fadeAnim }]}>
+        <Animated.View
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width,
+            height,
+            backgroundColor: 'white',
+            justifyContent: 'center',
+            alignItems: 'center',
+            opacity: fadeAnim,
+          }}>
           <CustomSplashScreen />
         </Animated.View>
       )}
@@ -123,12 +134,3 @@ const MODAL_OPTIONS = {
   title: 'Settings',
   headerRight: () => <ThemeToggle />,
 } as const;
-
-const styles = StyleSheet.create({
-  splashContainer: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
