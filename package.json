@@ -8,7 +8,8 @@
     "start": "expo start",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "storybook-generate": "sb-rn-get-stories"
   },
   "dependencies": {
     "@expo/react-native-action-sheet": "^4.1.0",
@@ -54,7 +55,7 @@
     "react-native": "0.74.5",
     "react-native-gesture-handler": "~2.16.1",
     "react-native-ios-context-menu": "^2.5.1",
-    "react-native-ios-utilities": "^4.5.0",
+    "react-native-ios-utilities": "4.4.1",
     "react-native-keyboard-controller": "^1.14.2",
     "react-native-pager-view": "6.3.0",
     "react-native-reanimated": "~3.10.1",
@@ -67,9 +68,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@react-native-async-storage/async-storage": "^2.0.0",
+    "@storybook/addon-ondevice-actions": "^8.3.10",
+    "@storybook/addon-ondevice-controls": "^8.3.10",
+    "@storybook/react-native": "^8.3.10",
     "@types/react": "~18.2.45",
     "@typescript-eslint/eslint-plugin": "^7.7.0",
     "@typescript-eslint/parser": "^7.7.0",
+    "babel-loader": "^8.4.1",
     "eslint": "^8.57.0",
     "eslint-config-universe": "^12.0.1",
     "prettier": "^3.2.5",
