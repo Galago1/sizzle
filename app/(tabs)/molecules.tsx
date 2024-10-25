@@ -258,18 +258,6 @@ export default function Screen() {
                 </CardContent>
               </Card>
             </View>
-            <View className="mt-4">
-              <Card rootClassName="shadow-none">
-                <CardContent>
-                  <Text className="font-['Inter'] font-light">Toolbar</Text>
-                  {/* <Toolbar
-                    className="absolute bottom-0 left-0 right-0"
-                    leftView={<ToolbarIcon icon={{ name: 'bookmark-outline' }} />}
-                    rightView={<ToolbarCTA icon={{ name: 'pencil-box-outline' }} />}
-                  /> */}
-                </CardContent>
-              </Card>
-            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

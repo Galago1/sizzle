@@ -1,8 +1,6 @@
 import { Icon } from '@roninoss/icons';
-import { isLoading } from 'expo-font';
 import * as React from 'react';
 import { Animated, Platform, SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native';
-import { colors } from 'react-native-keyboard-controller/lib/typescript/components/KeyboardToolbar/colors';
 import {
   FadeIn,
   FadeInUp,
@@ -210,26 +208,6 @@ export default function Screen() {
               <CardContent>
                 <Text className="font-['Inter'] font-light">Progress Indicator</Text>
                 <ProgressIndicator value={progress} className={'mt-2'} />
-              </CardContent>
-            </Card>
-          </View>
-          {/* Not working */}
-          <View className="mt-4">
-            <Card rootClassName="shadow-none">
-              <CardContent>
-                <Text className="font-['Inter'] font-light">Ratings Indicator</Text>
-                <TouchableOpacity
-                  className="mt-2 rounded-full bg-gray-600 py-3"
-                  // onPress={async () => {
-                  //   if (await StoreReview.hasAction()) {
-                  //     await StoreReview.requestReview();
-                  //   }
-                  // }}
-                >
-                  <Text className="text-center font-['Inter'] font-semibold text-white">
-                    Show Ratings Indicator
-                  </Text>
-                </TouchableOpacity>
               </CardContent>
             </Card>
           </View>
