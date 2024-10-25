@@ -31,6 +31,7 @@
     "@rn-primitives/slot": "^1.1.0",
     "@roninoss/icons": "^0.0.4",
     "@shopify/flash-list": "1.6.4",
+    "@storybook/react": "^8.3.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "expo": "^51.0.38",
