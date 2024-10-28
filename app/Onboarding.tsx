@@ -69,10 +69,10 @@ export default function Onboarding() {
           <View className="mb-6 flex-row items-center justify-between">
             <TouchableOpacity
               className="mr-2 rounded-full p-2 active:opacity-70"
-              onPress={() => setCurrentStep('intro')}>
+              onPress={() => router.push('/(tabs)/templates')}>
               <EvilIcons name="close" size={24} color="black" />
             </TouchableOpacity>
-            <ProgressIndicator value={25} className="w-11/12" indicatorClassName="bg-gray-800" />
+            <ProgressIndicator value={33} className="w-10/12" indicatorClassName="bg-gray-800" />
           </View>
           <Text className="mb-1 font-['Inter'] text-2xl font-light text-gray-600">
             What are your core values?
@@ -140,10 +140,10 @@ export default function Onboarding() {
           <View className="mb-6 flex-row items-center justify-between">
             <TouchableOpacity
               className="mr-2 rounded-full p-2 active:opacity-70"
-              onPress={() => setCurrentStep('values')}>
+              onPress={() => router.push('/(tabs)/templates')}>
               <EvilIcons name="close" size={24} color="black" />
             </TouchableOpacity>
-            <ProgressIndicator value={50} className="w-11/12" indicatorClassName="bg-gray-800" />
+            <ProgressIndicator value={66} className="w-10/12" indicatorClassName="bg-gray-800" />
           </View>
           <Text className="mb-1 font-['Inter'] text-2xl font-light text-gray-600">
             What do you enjoy doing?
@@ -179,10 +179,10 @@ export default function Onboarding() {
           <View className="mb-6 flex-row items-center justify-between">
             <TouchableOpacity
               className="mr-2 rounded-full p-2 active:opacity-70"
-              onPress={() => setCurrentStep('goals')}>
+              onPress={() => router.push('/(tabs)/templates')}>
               <EvilIcons name="close" size={24} color="black" />
             </TouchableOpacity>
-            <ProgressIndicator value={60} className="w-11/12" indicatorClassName="bg-gray-800" />
+            <ProgressIndicator value={100} className="w-10/12" indicatorClassName="bg-gray-800" />
           </View>
           <Text className="mb-1 font-['Inter'] text-2xl font-light text-gray-600">
             What do you want to achieve?
@@ -217,7 +217,9 @@ export default function Onboarding() {
             </Text>
             <Text className="mb-8 font-['Inter'] text-sm text-gray-600">
               You've taken a powerful step toward becoming your best self. Now, let's define the
-              areas of your life you want to focus on to make this vision a reality.
+              areas of your life you want to focus on to make this vision a reality. Whether it's
+              your career, relationships, health, or personal growth, we're here to guide you every
+              step of the way.
             </Text>
             <TouchableOpacity
               className="mb-4 w-full rounded-full bg-gray-600 py-3"
