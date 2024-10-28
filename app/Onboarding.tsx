@@ -15,9 +15,9 @@ import CardSelectionGroup from '~/components/CardSelectionGroup';
 
 export default function Onboarding() {
   const navigation = useNavigation();
-  const [currentStep, setCurrentStep] = React.useState<'intro' | 'values' | 'goals' | 'goals2'>(
-    'intro'
-  );
+  const [currentStep, setCurrentStep] = React.useState<
+    'intro' | 'values' | 'goals' | 'goals2' | 'complete'
+  >('intro');
   const [selectedValues, setSelectedValues] = React.useState<string[]>([]);
   const sheetRef = useSheetRef();
   React.useEffect(() => {
@@ -174,7 +174,7 @@ export default function Onboarding() {
             </TouchableOpacity>
           </View>
         </View>
-      ) : (
+      ) : currentStep === 'goals2' ? (
         <View className="mx-4 h-full">
           <View className="mb-6 flex-row items-center justify-between">
             <TouchableOpacity
@@ -182,22 +182,21 @@ export default function Onboarding() {
               onPress={() => setCurrentStep('goals')}>
               <EvilIcons name="close" size={24} color="black" />
             </TouchableOpacity>
-            <ProgressIndicator value={75} className="w-11/12" indicatorClassName="bg-gray-800" />
+            <ProgressIndicator value={60} className="w-11/12" indicatorClassName="bg-gray-800" />
           </View>
           <Text className="mb-1 font-['Inter'] text-2xl font-light text-gray-600">
-            Create your vision statement
+            What do you want to achieve?
           </Text>
           <Text className="mb-4 font-['Inter'] text-sm font-normal text-gray-600">
-            Based on your answers, we've crafted a few vision statements to reflect your
-            aspirations. Choose one that resonates with you or edit it to make it truly your own
+            What are the specific goals you want to achieve in the next five years? Be as detailed
+            as possible.
           </Text>
           <View className="flex-1">
-            <CardSelectionGroup
-              cards={visionStatements}
-              onSelect={(index) => {
-                // Handle selection if needed
-                console.log('Selected vision statement:', index);
-              }}
+            <TextField
+              className="h-32 rounded-xl border border-gray-800 bg-gray-50 p-4"
+              placeholder="e.g., becoming a software engineer, starting a business, traveling the world"
+              multiline
+              textAlignVertical="top"
             />
           </View>
           <View className="flex-row justify-between pb-8">
@@ -207,8 +206,35 @@ export default function Onboarding() {
               color="black"
               onPress={() => setCurrentStep('goals')}
             />
-            <TouchableOpacity className="rounded-full bg-gray-600 px-6 py-3" onPress={() => {}}>
+            <TouchableOpacity
+              className="rounded-full bg-gray-600 px-6 py-3"
+              onPress={() => setCurrentStep('complete')}>
               <Text className="text-center font-['Inter'] font-semibold text-white">Next</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      ) : (
+        <View className="mx-4 h-full">
+          <View className="flex-1">
+            <Image source={require('../assets/step4.png')} className="mb-2 h-3/5 w-full" />
+            <Text className="mb-2 font-['Inter'] text-2xl font-light text-gray-600">
+              Congratulations on{'\n'}Crafting Your Vision!
+            </Text>
+            <Text className="mb-8 font-['Inter'] text-sm text-gray-600">
+              You've taken a powerful step toward becoming your best self. Now, let's define the
+              areas of your life you want to focus on to make this vision a reality. Whether it's
+              your career, relationships, health, or personal growth, we're here to guide you every
+              step of the way.
+            </Text>
+            <TouchableOpacity
+              className="mb-4 w-full rounded-full bg-gray-600 py-3"
+              onPress={() => router.push('/(tabs)/templates')}>
+              <Text className="text-center font-['Inter'] font-semibold text-white">
+                Step 2: Action
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => router.push('/(tabs)/templates')}>
+              <Text className="text-center font-['Inter'] text-gray-600">I'll Do This Later</Text>
             </TouchableOpacity>
           </View>
         </View>
