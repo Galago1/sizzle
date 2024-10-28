@@ -14,7 +14,9 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/Inter.ttf"]
+          "fonts": [
+            "./assets/fonts/Inter.ttf"
+          ]
         }
       ]
     ],
@@ -43,6 +45,11 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.jkferland.myexpoapp"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f4837e29-21e6-48cb-a0ba-1f427d32c3e0"
+      }
     }
   }
 }
