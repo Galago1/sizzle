@@ -33,7 +33,7 @@ export default function CardSelectionGroup({ cards, onSelect }: CardSelectionGro
             <CardContent>
               <View className="w-full flex-row items-start justify-between">
                 <View className="mr-4 flex-1">
-                  <CardTitle className="font-['Inter'] !text-base !font-light !text-gray-600">
+                  <CardTitle className="font-['Inter'] !text-base !font-medium !text-gray-800">
                     {card.title}
                   </CardTitle>
                   <CardDescription className="mt-1 text-sm text-gray-600">

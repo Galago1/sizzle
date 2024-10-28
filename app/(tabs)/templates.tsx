@@ -43,7 +43,9 @@ export default function Screen() {
             <Text className="text-blue-500">Button 2</Text>
           </TouchableOpacity>
         </TopNav>
-        <ScrollView contentContainerStyle={{ paddingBottom: 50 }}>
+        <ScrollView
+          contentContainerStyle={{ paddingBottom: 50 }}
+          showsVerticalScrollIndicator={false}>
           <View className="mb-4 mt-4">
             <Card rootClassName="shadow-none">
               <CardContent>

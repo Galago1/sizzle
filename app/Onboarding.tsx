@@ -10,8 +10,8 @@ import { Sheet, useSheetRef } from '~/components/nativewindui/Sheet';
 import { ProgressIndicator } from '~/components/nativewindui/ProgressIndicator';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
 import Entypo from '@expo/vector-icons/Entypo';
-import { TextField } from '~/components/nativewindui/TextField';
 import CardSelectionGroup from '~/components/CardSelectionGroup';
+import { TextField } from '~/components/nativewindui/TextField';
 
 export default function Onboarding() {
   const navigation = useNavigation();
@@ -192,12 +192,7 @@ export default function Onboarding() {
             as possible.
           </Text>
           <View className="flex-1">
-            <TextField
-              className="h-32 rounded-xl border border-gray-800 bg-gray-50 p-4"
-              placeholder="e.g., becoming a software engineer, starting a business, traveling the world"
-              multiline
-              textAlignVertical="top"
-            />
+            <CardSelectionGroup cards={visionStatements} />
           </View>
           <View className="flex-row justify-between pb-8">
             <Entypo
@@ -222,9 +217,7 @@ export default function Onboarding() {
             </Text>
             <Text className="mb-8 font-['Inter'] text-sm text-gray-600">
               You've taken a powerful step toward becoming your best self. Now, let's define the
-              areas of your life you want to focus on to make this vision a reality. Whether it's
-              your career, relationships, health, or personal growth, we're here to guide you every
-              step of the way.
+              areas of your life you want to focus on to make this vision a reality.
             </Text>
             <TouchableOpacity
               className="mb-4 w-full rounded-full bg-gray-600 py-3"
