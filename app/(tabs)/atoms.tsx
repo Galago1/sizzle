@@ -68,7 +68,9 @@ export default function Screen() {
         </TopNav>
       </View>
       <View className="mx-4">
-        <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 100 }}>
           <View>
             <Card rootClassName="shadow-none">
               <CardContent>

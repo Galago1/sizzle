@@ -24,12 +24,16 @@ export default function Screen() {
     router.push('/UserProfile');
   };
 
+  const handleNavigateToTutorial = () => {
+    router.push('/Tutorial');
+  };
+
   const handleNavigateToOnboarding = () => {
     router.push('/Onboarding');
   };
 
   return (
-    <SafeAreaView className="flex-1">
+    <SafeAreaView className="flex-1 ">
       <View className="mx-4">
         <TopNav title="Templates">
           <TouchableOpacity className="mr-4">
@@ -39,7 +43,9 @@ export default function Screen() {
             <Text className="text-blue-500">Button 2</Text>
           </TouchableOpacity>
         </TopNav>
-        <ScrollView>
+        <ScrollView
+          contentContainerStyle={{ paddingBottom: 50 }}
+          showsVerticalScrollIndicator={false}>
           <View className="mb-4 mt-4">
             <Card rootClassName="shadow-none">
               <CardContent>
@@ -71,8 +77,23 @@ export default function Screen() {
           <View className="mt-4">
             <Card rootClassName="shadow-none">
               <CardContent>
+                <CardTitle>Tutorial</CardTitle>
+                <CardSubtitle>Walk through a Tutorial</CardSubtitle>
+              </CardContent>
+              <CardFooter>
+                <TouchableOpacity
+                  onPress={handleNavigateToTutorial}
+                  className="rounded-md bg-blue-500 px-4 py-2">
+                  <Text className="text-white">See Template</Text>
+                </TouchableOpacity>
+              </CardFooter>
+            </Card>
+          </View>
+          <View className="mt-4">
+            <Card rootClassName="shadow-none">
+              <CardContent>
                 <CardTitle>Onboarding</CardTitle>
-                <CardSubtitle>Step by step onboarding</CardSubtitle>
+                <CardSubtitle>Step by Step Onboarding</CardSubtitle>
               </CardContent>
               <CardFooter>
                 <TouchableOpacity

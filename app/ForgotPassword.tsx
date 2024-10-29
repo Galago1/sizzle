@@ -39,7 +39,9 @@ export default function ForgotPasswordScreen() {
     <SafeAreaView className="flex-1">
       {!isLinkSent ? (
         <View className="flex-1">
-          <ScrollView contentContainerClassName="p-4 flex-grow">
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerClassName="p-4 flex-grow">
             <TouchableOpacity onPress={() => router.back()}>
               <Entypo name="chevron-thin-left" size={24} color="black" />
             </TouchableOpacity>

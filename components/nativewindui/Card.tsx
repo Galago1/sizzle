@@ -22,7 +22,7 @@ const Card = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof View> & { rootClassName?: string }
 >(({ className, rootClassName, ...props }, ref) => (
   <View
-    className={cn('bg-card ios:shadow-xl ios:rounded-2xl rounded-xl shadow-2xl', rootClassName)}>
+    className={cn('ios:shadow-xl ios:rounded-2xl rounded-xl bg-card shadow-2xl', rootClassName)}>
     <View
       ref={ref}
       className={cn('ios:rounded-2xl justify-end overflow-hidden rounded-xl', className)}
@@ -127,7 +127,7 @@ function CardTitle({ className, ...props }: React.ComponentPropsWithoutRef<typeo
       role="heading"
       aria-level={3}
       className={cn(
-        'text-card-foreground ios:font-bold text-3xl font-medium leading-none tracking-tight',
+        'ios:font-bold text-3xl font-medium leading-none tracking-tight text-card-foreground',
         className
       )}
       {...props}
@@ -150,7 +150,7 @@ function CardSubtitle({
 }
 
 function CardDescription({ className, ...props }: React.ComponentPropsWithoutRef<typeof Text>) {
-  return <Text className={cn('text-muted-foreground leading-5', className)} {...props} />;
+  return <Text className={cn('leading-5 text-muted-foreground', className)} {...props} />;
 }
 
 const CardFooter = React.forwardRef<

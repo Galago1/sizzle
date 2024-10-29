@@ -30,7 +30,7 @@ export default function UserProfile() {
         <Entypo name="chevron-thin-left" size={24} color="black" />
       </TouchableOpacity>
       <TopNav title="User Profile" />
-      <ScrollView className="mt-4">
+      <ScrollView showsVerticalScrollIndicator={false} className="mt-4">
         <View>
           <View className="relative flex-row items-center">
             <AvatarAndText title="John Doe" subtitle="john.doe@example.com" fallbackText="JD" />

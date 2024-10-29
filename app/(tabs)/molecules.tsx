@@ -41,7 +41,9 @@ export default function Screen() {
   return (
     <>
       <SafeAreaView className="flex-1">
-        <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 100 }}>
           <View className="p-4">
             <TopNav title="Molecules">
               <TouchableOpacity className="mr-4">

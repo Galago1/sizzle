@@ -72,7 +72,7 @@ export default function SignUpScreen() {
   return (
     <SafeAreaView className="flex-1">
       <View className="flex-1">
-        <ScrollView contentContainerClassName="p-4 flex-grow">
+        <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="p-4 flex-grow">
           <TouchableOpacity className="mb-8" onPress={() => router.back()}>
             <Entypo name="chevron-thin-left" size={24} color="black" />
           </TouchableOpacity>

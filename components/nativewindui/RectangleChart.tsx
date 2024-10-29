@@ -33,7 +33,7 @@ const RectangleChart: React.FC<RectangleChartProps> = ({ data }) => {
   );
 
   return (
-    <ScrollView className="p-4">
+    <ScrollView showsVerticalScrollIndicator={false} className="p-4">
       <View>{[0, 7, 14, 21, 28].map((startIndex) => renderWeek(startIndex))}</View>
     </ScrollView>
   );
