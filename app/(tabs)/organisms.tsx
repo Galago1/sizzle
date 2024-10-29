@@ -1,3 +1,4 @@
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { Image } from 'expo-image';
 import * as React from 'react';
 import { SafeAreaView, TouchableOpacity, View, Share, Platform, ScrollView } from 'react-native';
@@ -14,9 +15,19 @@ import {
   CardSubtitle,
   CardTitle,
 } from '~/components/nativewindui/Card';
+import EmptyStateCard from '~/components/nativewindui/Cards/EmptyStateCard';
 import { ESTIMATED_ITEM_HEIGHT, List, ListItem } from '~/components/nativewindui/List';
 import RectangleChart from '~/components/nativewindui/RectangleChart';
 import { Text } from '~/components/nativewindui/Text';
+
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import CardWithIcon from '~/components/nativewindui/Cards/CardWithIcon';
+import { SideImageCard } from '~/components/nativewindui/Cards/SideImageCard';
+import { ProgressIndicator } from '~/components/nativewindui/ProgressIndicator';
+import { QuoteCard } from '~/components/nativewindui/Cards/QuoteCard';
+import IconCard from '~/components/nativewindui/Cards/IconCard';
+import { FooterCard } from '~/components/nativewindui/Cards/FooterCard';
+import Feather from '@expo/vector-icons/Feather';
 
 export default function Screen() {
   // Add the share function
@@ -186,6 +197,95 @@ export default function Screen() {
                     0.6, 0.3, 0.7, 0.5, 0.8, 0.6, 0.8, 0.5, 0.3, 0.7, 0.4, 0.9, 0.5, 0.7, 0.6, 0.8,
                     0.4, 0.2, 0.1,
                   ]}
+                />
+              </CardContent>
+            </Card>
+          </View>
+          <View className="mt-4">
+            <Card rootClassName="shadow-none">
+              <CardContent>
+                <Text className="font-['Inter'] font-light">Empty State Card</Text>
+                <EmptyStateCard
+                  title="Your vision awaits"
+                  description="Define your aspirations and start your journey toward the life you want."
+                  buttonText="Create Vision"
+                />
+              </CardContent>
+            </Card>
+          </View>
+          <View className="mt-4">
+            <Card rootClassName="shadow-none">
+              <CardContent>
+                <Text className="font-['Inter'] font-light">Card with Icon</Text>
+                <CardWithIcon
+                  title="Your vision awaits"
+                  description="Define your aspirations and start your journey toward the life you want."
+                  icon={<FontAwesome5 name="edit" size={24} color="black" />}
+                />
+              </CardContent>
+            </Card>
+          </View>
+          <View className="mt-4">
+            <Card rootClassName="shadow-none">
+              <CardContent>
+                <Text className="font-['Inter'] font-light">Card with Icon</Text>
+                <SideImageCard
+                  imageSource={{
+                    uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiJaTQAtlNXMOYt8UIJ3OqduivNQ_IyXeFqA&s',
+                  }}
+                  title="Charmander"
+                  subtitle="Fire Type"
+                  progress={10}
+                  total={100}
+                />
+              </CardContent>
+            </Card>
+          </View>
+          <View className="mt-4">
+            <Card rootClassName="shadow-none">
+              <CardContent>
+                <Text className="font-['Inter'] font-light">Quote Card</Text>
+                <QuoteCard
+                  quote="The only way to do great work is to love what you do."
+                  author="Steve Jobs"
+                />
+              </CardContent>
+            </Card>
+          </View>
+          <View className="mt-4">
+            <Card rootClassName="shadow-none">
+              <CardContent>
+                <Text className="font-['Inter'] font-light">Icon Card</Text>
+                <IconCard
+                  title="My Vision"
+                  description="My vision is to lead a life filled with balance, where I prioritize strong relationships, personal growth, and maintaining my health. I will nurture my creativity and embrace new learning opportunities, while striving for financial freedom and inner peace."
+                  icon={
+                    <FontAwesome6
+                      name="mountain-sun"
+                      size={24}
+                      color="black"
+                      className="mb-2 mt-4"
+                    />
+                  }
+                />
+              </CardContent>
+            </Card>
+          </View>
+          <View className="mt-4">
+            <Card rootClassName="shadow-none">
+              <CardContent>
+                <Text className="font-['Inter'] font-light">Footer Card</Text>
+                <FooterCard
+                  title="My Vision"
+                  description="My vision is to lead a life filled with balance, where I prioritize strong relationships, personal growth, and maintaining my health. I will nurture my creativity and embrace new learning opportunities, while striving for financial freedom and inner peace."
+                  footerIcon={<Feather name="target" size={24} color="black" />}
+                  footerContent={
+                    <View className="flex-row items-center gap-1">
+                      <Text className="font-['Inter'] text-sm text-gray-600">12:18am</Text>
+                      <View className="h-2 w-2 rounded-full bg-gray-500" />
+                      <Text className="font-['Inter'] text-sm text-gray-600">Oct 23</Text>
+                    </View>
+                  }
                 />
               </CardContent>
             </Card>
