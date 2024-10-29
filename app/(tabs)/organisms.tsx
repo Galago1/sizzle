@@ -228,7 +228,7 @@ export default function Screen() {
           <View className="mt-4">
             <Card rootClassName="shadow-none">
               <CardContent>
-                <Text className="font-['Inter'] font-light">Card with Icon</Text>
+                <Text className="font-['Inter'] font-light">Card with Image</Text>
                 <SideImageCard
                   imageSource={{
                     uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiJaTQAtlNXMOYt8UIJ3OqduivNQ_IyXeFqA&s',

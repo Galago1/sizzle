@@ -20,7 +20,7 @@ export function FooterCard({
   icon,
 }: FooterCardProps) {
   return (
-    <Card>
+    <Card rootClassName="shadow-none">
       <CardContent>
         <View className="flex-row items-start justify-between gap-3">
           <View className="flex-1">
