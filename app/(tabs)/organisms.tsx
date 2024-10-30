@@ -1,7 +1,15 @@
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import { Image } from 'expo-image';
 import * as React from 'react';
-import { SafeAreaView, TouchableOpacity, View, Share, Platform, ScrollView } from 'react-native';
+import {
+  Dimensions,
+  SafeAreaView,
+  TouchableOpacity,
+  View,
+  Share,
+  Platform,
+  ScrollView,
+  Image,
+} from 'react-native';
 
 import { Button } from '~/components/Button';
 import { TopNav } from '~/components/TopNav';
@@ -28,8 +36,10 @@ import { QuoteCard } from '~/components/nativewindui/Cards/QuoteCard';
 import IconCard from '~/components/nativewindui/Cards/IconCard';
 import { FooterCard } from '~/components/nativewindui/Cards/FooterCard';
 import Feather from '@expo/vector-icons/Feather';
+import Carousel from 'react-native-reanimated-carousel';
 
 export default function Screen() {
+  const width = Dimensions.get('window').width;
   // Add the share function
   const share = async () => {
     try {
@@ -287,6 +297,33 @@ export default function Screen() {
                     </View>
                   }
                 />
+              </CardContent>
+            </Card>
+          </View>
+          <View className="mt-4">
+            <Card rootClassName="shadow-none">
+              <CardContent className="">
+                <Text className="font-['Inter'] font-light">Carousel</Text>
+                <View className="border-2 border-gray-200">
+                  <Carousel
+                    loop
+                    width={width}
+                    height={width / 2}
+                    autoPlay={true}
+                    data={[...new Array(6).keys()]}
+                    scrollAnimationDuration={1000}
+                    renderItem={({ index }) => (
+                      <View className="">
+                        <Image
+                          source={{
+                            uri: `https://picsum.photos/320/200`,
+                          }}
+                          style={{ width: width - 75, height: (width - 75) * (200 / 320) }}
+                        />
+                      </View>
+                    )}
+                  />
+                </View>
               </CardContent>
             </Card>
           </View>
