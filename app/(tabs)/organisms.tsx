@@ -37,6 +37,7 @@ import IconCard from '~/components/nativewindui/Cards/IconCard';
 import { FooterCard } from '~/components/nativewindui/Cards/FooterCard';
 import Feather from '@expo/vector-icons/Feather';
 import Carousel from 'react-native-reanimated-carousel';
+import { EditableList } from '~/components/nativewindui/EditableList';
 
 export default function Screen() {
   const width = Dimensions.get('window').width;
@@ -324,6 +325,43 @@ export default function Screen() {
                     )}
                   />
                 </View>
+              </CardContent>
+            </Card>
+          </View>
+          <View className="mt-4">
+            <Card rootClassName="shadow-none">
+              <CardContent className="">
+                <Text className="font-['Inter'] font-light">Editable List</Text>
+                <EditableList
+                  title="My Goals"
+                  icon={<FontAwesome6 name="check-circle" size={24} color="black" />}
+                  data={[
+                    {
+                      id: '1',
+                      content: (
+                        <View>
+                          <Text>Goal 1</Text>
+                        </View>
+                      ),
+                    },
+                    {
+                      id: '2',
+                      content: (
+                        <View>
+                          <Text>Goal 2</Text>
+                        </View>
+                      ),
+                    },
+                    {
+                      id: '3',
+                      content: (
+                        <View>
+                          <Text>Goal 3</Text>
+                        </View>
+                      ),
+                    },
+                  ]}
+                />
               </CardContent>
             </Card>
           </View>
