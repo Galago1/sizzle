@@ -180,7 +180,7 @@ export default function Screen() {
                         <ActivityIndicator size="small" />
                       </Animated.View>
                     )}
-                    <Text>Tonal</Text>
+                    {!isLoading && <Text>Tonal</Text>}
                   </Button>
                   <Button variant="plain">
                     <Text>Plain</Text>
