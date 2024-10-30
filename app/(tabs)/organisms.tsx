@@ -39,6 +39,13 @@ import Feather from '@expo/vector-icons/Feather';
 import Carousel from 'react-native-reanimated-carousel';
 import { EditableList } from '~/components/nativewindui/EditableList';
 
+// Add this mock data
+const mockGoals = [
+  { id: '1', title: 'Exercise', progress: '2/5', frequency: 'Weekly' },
+  { id: '2', title: '8000 steps', progress: '0/15', frequency: 'Monthly' },
+  { id: '3', title: '7 hours of sleep', progress: '0/15', frequency: 'Monthly' },
+];
+
 export default function Screen() {
   const width = Dimensions.get('window').width;
   // Add the share function
@@ -59,6 +66,21 @@ export default function Screen() {
     } catch (error: any) {
       console.log(error.message);
     }
+  };
+
+  // Add this state for selection
+  const [selectedGoals, setSelectedGoals] = React.useState<Set<string>>(new Set());
+
+  const handleGoalSelect = (id: string) => {
+    setSelectedGoals((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
   };
 
   return (
@@ -334,33 +356,16 @@ export default function Screen() {
                 <Text className="font-['Inter'] font-light">Editable List</Text>
                 <EditableList
                   title="My Goals"
-                  icon={<FontAwesome6 name="check-circle" size={24} color="black" />}
-                  data={[
-                    {
-                      id: '1',
-                      content: (
-                        <View>
-                          <Text>Goal 1</Text>
-                        </View>
-                      ),
-                    },
-                    {
-                      id: '2',
-                      content: (
-                        <View>
-                          <Text>Goal 2</Text>
-                        </View>
-                      ),
-                    },
-                    {
-                      id: '3',
-                      content: (
-                        <View>
-                          <Text>Goal 3</Text>
-                        </View>
-                      ),
-                    },
-                  ]}
+                  data={mockGoals.map((goal) => ({
+                    id: goal.id,
+                    selected: selectedGoals.has(goal.id),
+                    content: (
+                      <View className="flex-row items-center justify-between">
+                        <Text>{goal.title}</Text>
+                      </View>
+                    ),
+                  }))}
+                  onItemSelect={handleGoalSelect}
                 />
               </CardContent>
             </Card>
