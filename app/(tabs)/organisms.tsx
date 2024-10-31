@@ -128,7 +128,7 @@ export default function Screen() {
 
   return (
     <SafeAreaView className="flex-1">
-      <View className="mt-4">
+      {/* <View className="mt-4">
         <Card rootClassName="shadow-none">
           <CardContent className="">
             <Text className="font-['Inter'] font-light">Editable List</Text>
@@ -146,7 +146,7 @@ export default function Screen() {
             />
           </CardContent>
         </Card>
-      </View>
+      </View> */}
       <View className="p-4">
         <TopNav title="Organisms">
           <TouchableOpacity className="mr-4">
