@@ -32,22 +32,26 @@ export function EditableList({
     const { item, onDragStart, onDragEnd } = info;
 
     return (
-      <View className="mb-4 flex flex-row items-center">
-        <TouchableOpacity
-          onPress={() => onItemSelect?.(item.id)}
-          style={{
-            width: 24,
-            height: 24,
-            borderRadius: 12,
-            borderWidth: 1,
-            borderColor: '#d1d5db',
-            marginRight: 12,
-            backgroundColor: item.selected ? '#1f2937' : 'transparent',
-          }}
-        />
-        <Card className="flex-1" rootClassName="shadow-none">
-          <CardContent>{item.content}</CardContent>
-        </Card>
+      <View className="mb-4 flex flex-row items-center justify-between">
+        <View className="flex flex-1 flex-row items-center">
+          <TouchableOpacity
+            onPress={() => onItemSelect?.(item.id)}
+            style={{
+              width: 24,
+              height: 24,
+              borderRadius: 12,
+              borderWidth: 1,
+              borderColor: '#d1d5db',
+              marginRight: 12,
+              backgroundColor: item.selected ? '#1f2937' : 'transparent',
+            }}
+          />
+          <View className="flex-1">
+            <Card rootClassName="shadow-none">
+              <CardContent>{item.content}</CardContent>
+            </Card>
+          </View>
+        </View>
         <TouchableOpacity onPressIn={onDragStart} onPressOut={onDragEnd} className="ml-2 p-2">
           <MaterialIcons name="drag-handle" size={24} color="#9ca3af" />
         </TouchableOpacity>
