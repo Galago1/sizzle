@@ -38,6 +38,8 @@ import { FooterCard } from '~/components/nativewindui/Cards/FooterCard';
 import Feather from '@expo/vector-icons/Feather';
 import Carousel from 'react-native-reanimated-carousel';
 import { EditableList } from '~/components/nativewindui/EditableList';
+import { Tabs } from '~/components/Tabs';
+import { format } from 'date-fns';
 
 // Define the interface for goals
 interface Goal {
@@ -125,6 +127,29 @@ export default function Screen() {
     };
     setGoals((prevGoals) => [...prevGoals, newItem]);
   };
+
+  const [selectedDate, setSelectedDate] = React.useState<string>(() => {
+    const today = new Date();
+    return today.toISOString();
+  });
+
+  const dateTabData = React.useMemo(() => {
+    const today = new Date();
+    const dates = [];
+
+    // Generate 7 days, 3 before today and 3 after
+    for (let i = -3; i <= 3; i++) {
+      const date = new Date(today);
+      date.setDate(today.getDate() + i);
+
+      dates.push({
+        id: date.toISOString(),
+        label: i === 0 ? 'TODAY' : format(date, 'EEE d').toUpperCase(), // e.g., "MON 10"
+      });
+    }
+
+    return dates;
+  }, []);
 
   return (
     <SafeAreaView className="flex-1">
@@ -409,6 +434,14 @@ export default function Screen() {
                     )}
                   />
                 </View>
+              </CardContent>
+            </Card>
+          </View>
+          <View className="mt-4">
+            <Card rootClassName="shadow-none">
+              <CardContent>
+                <Text className="mb-4 font-['Inter'] font-light">Tabs</Text>
+                <Tabs tabs={dateTabData} selectedId={selectedDate} onSelect={setSelectedDate} />
               </CardContent>
             </Card>
           </View>
