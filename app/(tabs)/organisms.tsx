@@ -39,6 +39,14 @@ import Feather from '@expo/vector-icons/Feather';
 import Carousel from 'react-native-reanimated-carousel';
 import { EditableList } from '~/components/nativewindui/EditableList';
 
+// Define the interface for goals
+interface Goal {
+  id: string;
+  title: string;
+  content: string;
+  selected?: boolean;
+}
+
 // Add this mock data
 const mockGoals = [
   { id: '1', title: 'Exercise', progress: '2/5', frequency: 'Weekly' },
@@ -68,6 +76,13 @@ export default function Screen() {
     }
   };
 
+  // Update the goals state to include content
+  const [goals, setGoals] = React.useState<Goal[]>([
+    { id: '1', title: 'Exercise', content: 'Exercise', selected: false },
+    { id: '2', title: '8000 steps', content: '8000 steps', selected: false },
+    { id: '3', title: '7 hours of sleep', content: '7 hours of sleep', selected: false },
+  ]);
+
   // Add this state for selection
   const [selectedGoals, setSelectedGoals] = React.useState<Set<string>>(new Set());
 
@@ -83,15 +98,32 @@ export default function Screen() {
     });
   };
 
-  // Add state for managing goals order
-  const [goals, setGoals] = React.useState(mockGoals);
-
   // Add reordering handler
   const handleReorder = (fromIndex: number, toIndex: number) => {
-    const newGoals = [...goals];
-    const [movedItem] = newGoals.splice(fromIndex, 1);
-    newGoals.splice(toIndex, 0, movedItem);
-    setGoals(newGoals);
+    setGoals((prevGoals) => {
+      const newGoals = [...prevGoals];
+      const [movedItem] = newGoals.splice(fromIndex, 1);
+      newGoals.splice(toIndex, 0, movedItem);
+      return newGoals;
+    });
+  };
+
+  const handleUpdateContent = (id: string, newContent: string) => {
+    setGoals((prevGoals) =>
+      prevGoals.map((goal) =>
+        goal.id === id ? { ...goal, content: newContent, title: newContent } : goal
+      )
+    );
+  };
+
+  const handleAddItem = () => {
+    const newItem: Goal = {
+      id: Math.random().toString(36).substr(2, 9),
+      title: 'New Goal',
+      content: 'New Goal',
+      selected: false,
+    };
+    setGoals((prevGoals) => [...prevGoals, newItem]);
   };
 
   return (
@@ -104,15 +136,13 @@ export default function Screen() {
               title="My Goals"
               data={goals.map((goal) => ({
                 id: goal.id,
+                content: goal.content,
                 selected: selectedGoals.has(goal.id),
-                content: (
-                  <View className="flex-row items-center justify-between">
-                    <Text>{goal.title}</Text>
-                  </View>
-                ),
               }))}
               onItemSelect={handleGoalSelect}
               onReorder={handleReorder}
+              onAddItem={handleAddItem}
+              onUpdateContent={handleUpdateContent}
             />
           </CardContent>
         </Card>
