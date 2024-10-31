@@ -7417,6 +7417,11 @@ react-native-css-interop@0.1.18:
     lightningcss "1.27.0"
     semver "^7.6.3"
 
+react-native-draglist@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/react-native-draglist/-/react-native-draglist-3.6.2.tgz#cea9edeb7705bcf41d2b60098c23cf1268cc574a"
+  integrity sha512-QGgA5ejlJkd9B5meDxvkhxiFSyDZ6K341U/xcx4KhkoglCEqRTPmw6uZ9bQjpBqlty/lksVpWKnetCOgFnTUYA==
+
 react-native-gesture-handler@~2.16.1:
   version "2.16.2"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.16.2.tgz#032bd2a07334292d7f6cff1dc9d1ec928f72e26d"

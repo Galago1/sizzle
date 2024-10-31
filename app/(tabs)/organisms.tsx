@@ -83,8 +83,40 @@ export default function Screen() {
     });
   };
 
+  // Add state for managing goals order
+  const [goals, setGoals] = React.useState(mockGoals);
+
+  // Add reordering handler
+  const handleReorder = (fromIndex: number, toIndex: number) => {
+    const newGoals = [...goals];
+    const [movedItem] = newGoals.splice(fromIndex, 1);
+    newGoals.splice(toIndex, 0, movedItem);
+    setGoals(newGoals);
+  };
+
   return (
     <SafeAreaView className="flex-1">
+      <View className="mt-4">
+        <Card rootClassName="shadow-none">
+          <CardContent className="">
+            <Text className="font-['Inter'] font-light">Editable List</Text>
+            <EditableList
+              title="My Goals"
+              data={goals.map((goal) => ({
+                id: goal.id,
+                selected: selectedGoals.has(goal.id),
+                content: (
+                  <View className="flex-row items-center justify-between">
+                    <Text>{goal.title}</Text>
+                  </View>
+                ),
+              }))}
+              onItemSelect={handleGoalSelect}
+              onReorder={handleReorder}
+            />
+          </CardContent>
+        </Card>
+      </View>
       <View className="p-4">
         <TopNav title="Organisms">
           <TouchableOpacity className="mr-4">
@@ -347,26 +379,6 @@ export default function Screen() {
                     )}
                   />
                 </View>
-              </CardContent>
-            </Card>
-          </View>
-          <View className="mt-4">
-            <Card rootClassName="shadow-none">
-              <CardContent className="">
-                <Text className="font-['Inter'] font-light">Editable List</Text>
-                <EditableList
-                  title="My Goals"
-                  data={mockGoals.map((goal) => ({
-                    id: goal.id,
-                    selected: selectedGoals.has(goal.id),
-                    content: (
-                      <View className="flex-row items-center justify-between">
-                        <Text>{goal.title}</Text>
-                      </View>
-                    ),
-                  }))}
-                  onItemSelect={handleGoalSelect}
-                />
               </CardContent>
             </Card>
           </View>
