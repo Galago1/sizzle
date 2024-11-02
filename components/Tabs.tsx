@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { Text } from './nativewindui/Text';
-import { cn } from '~/lib/cn';
 
 interface Tab {
   id: string;
@@ -52,7 +51,10 @@ export function Tabs({ tabs, selectedId, onSelect, className }: TabsProps) {
       showsHorizontalScrollIndicator={false}
       onLayout={onScrollViewLayout}
       contentContainerStyle={{ alignItems: 'center' }}
-      className={cn('border-b border-gray-200', className)}>
+      style={{
+        borderBottomWidth: 1,
+        borderBottomColor: '#e5e7eb', // gray-200
+      }}>
       {tabs.map((tab) => (
         <View key={tab.id} style={{ alignItems: 'center' }}>
           <TouchableOpacity
@@ -60,16 +62,31 @@ export function Tabs({ tabs, selectedId, onSelect, className }: TabsProps) {
               tabRefs.current[tab.id] = ref;
             }}
             onPress={() => handleSelect(tab.id)}
-            className={cn('min-w-[80px] px-4 py-2')}>
+            style={{
+              minWidth: 80,
+              paddingHorizontal: 16, // px-4
+              paddingVertical: 8, // py-2
+            }}>
             <Text
-              className={cn(
-                'text-center font-["Inter"] text-sm text-gray-600',
-                selectedId === tab.id ? 'font-medium' : ''
-              )}>
+              style={{
+                textAlign: 'center',
+                fontFamily: 'Inter',
+                fontSize: 14, // text-sm
+                color: '#4b5563', // text-gray-600
+                fontWeight: selectedId === tab.id ? '500' : 'normal', // font-medium when selected
+              }}>
               {tab.label}
             </Text>
           </TouchableOpacity>
-          {selectedId === tab.id && <View className="h-0.5 w-10 bg-gray-600" />}
+          {selectedId === tab.id && (
+            <View
+              style={{
+                height: 2, // h-0.5
+                width: 40, // w-10
+                backgroundColor: '#4b5563', // bg-gray-600
+              }}
+            />
+          )}
         </View>
       ))}
     </ScrollView>
