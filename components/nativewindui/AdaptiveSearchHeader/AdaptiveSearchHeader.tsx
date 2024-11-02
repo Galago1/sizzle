@@ -21,7 +21,7 @@ import type {
   NativeStackNavigationSearchBarOptions,
 } from './types';
 
-import { Button } from '../~/components/nativewindui/Button';
+import { Button } from '~/components/nativewindui/Button';
 import { Text } from '~/components/nativewindui/Text';
 import { cn } from '~/lib/cn';
 import { useColorScheme } from '~/lib/useColorScheme';
@@ -119,7 +119,7 @@ export function AdaptiveSearchHeader(props: AdaptiveSearchHeaderProps) {
         className={cn('px-4 pb-3 shadow-none', props.shadowVisible && 'shadow-xl')}>
         <Button
           variant="plain"
-          className="bg-muted/25 android:gap-0 dark:bg-card h-14 flex-row items-center rounded-full px-2.5"
+          className="bg-muted/25 android:gap-0 h-14 flex-row items-center rounded-full px-2.5 dark:bg-card"
           onPress={onSearchButtonPress}>
           {!!props.leftView ? (
             <View className="flex-row justify-center gap-4 pl-0.5">
@@ -151,11 +151,11 @@ export function AdaptiveSearchHeader(props: AdaptiveSearchHeaderProps) {
           <Animated.View exiting={FadeOut} className="absolute bottom-0 left-0 right-0 top-0">
             <View
               style={{ paddingTop: insets.top + 6 }}
-              className="bg-background relative z-50 overflow-hidden">
+              className="relative z-50 overflow-hidden bg-background">
               <Animated.View
                 entering={customEntering}
                 exiting={customExiting}
-                className="bg-muted/25 dark:bg-card absolute bottom-2.5 left-4 right-4 h-14 rounded-full"
+                className="bg-muted/25 absolute bottom-2.5 left-4 right-4 h-14 rounded-full dark:bg-card"
               />
               <View className="pb-2.5">
                 <Animated.View
@@ -207,10 +207,10 @@ export function AdaptiveSearchHeader(props: AdaptiveSearchHeaderProps) {
                   </View>
                 </Animated.View>
               </View>
-              <Animated.View entering={ZoomIn} className="bg-border h-px" />
+              <Animated.View entering={ZoomIn} className="h-px bg-border" />
             </View>
-            <Animated.View entering={FadeInUp} className="bg-background flex-1 ">
-              <View className="bg-muted/25 dark:bg-card flex-1">{props.searchBar?.content}</View>
+            <Animated.View entering={FadeInUp} className="flex-1 bg-background ">
+              <View className="bg-muted/25 flex-1 dark:bg-card">{props.searchBar?.content}</View>
             </Animated.View>
           </Animated.View>
         </Portal>

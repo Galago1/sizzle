@@ -17,7 +17,7 @@ import { DropdownItem, DropdownMenuProps, DropdownMenuRef, DropdownSubMenu } fro
 
 import { ActivityIndicator } from '~/components/nativewindui/ActivityIndicator';
 import { Text } from '~/components/nativewindui/Text';
-import { Button } from '../~/components/nativewindui/Button';
+import { Button } from '~/components/nativewindui/Button';
 import { cn } from '~/lib/cn';
 import { useColorScheme } from '~/lib/useColorScheme';
 
@@ -123,7 +123,7 @@ const DropdownMenu = React.forwardRef<DropdownMenuRef, DropdownMenuProps>(
                     entering={FadeIn}
                     exiting={materialIsSubMenu ? undefined : FadeOut}
                     style={{ minWidth: materialMinWidth, width: materialWidth }}
-                    className="border-border/20 bg-card z-50 rounded-md border py-2 shadow-xl">
+                    className="border-border/20 z-50 rounded-md border bg-card py-2 shadow-xl">
                     {!!title && <DropdownMenuLabel>{title}</DropdownMenuLabel>}
                     <DropdownMenuInnerContent items={items} />
                   </Animated.View>
@@ -193,7 +193,7 @@ function DropdownMenuInnerContent({ items }: { items: (DropdownItem | DropdownSu
 
 function DropdownMenuLabel(props: { children: React.ReactNode }) {
   return (
-    <DropdownMenuPrimitive.Label className="text-muted-foreground/80 border-border/25 dark:border-border/80 dark:text-muted-foreground border-b px-3 pb-2 text-sm">
+    <DropdownMenuPrimitive.Label className="text-muted-foreground/80 border-border/25 dark:border-border/80 border-b px-3 pb-2 text-sm dark:text-muted-foreground">
       {props.children}
     </DropdownMenuPrimitive.Label>
   );
@@ -240,7 +240,7 @@ function DropdownMenuItem(props: Omit<DropdownItem, 'loading'>) {
                   numberOfLines={1}
                   className={cn(
                     'font-normal',
-                    props.destructive && 'text-destructive font-medium',
+                    props.destructive && 'font-medium text-destructive',
                     props.disabled && 'opacity-60'
                   )}>
                   {props.title}

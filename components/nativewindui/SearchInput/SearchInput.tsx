@@ -6,7 +6,7 @@ import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 
 import type { SearchInputProps } from './types';
 
-import { Button } from '../~/components/nativewindui/Button';
+import { Button } from '~/components/nativewindui/Button';
 import { cn } from '~/lib/cn';
 import { useColorScheme } from '~/lib/useColorScheme';
 
@@ -49,7 +49,7 @@ const SearchInput = React.forwardRef<React.ElementRef<typeof TextInput>, SearchI
       <Button
         variant="plain"
         className={cn(
-          'android:gap-0 android:h-14 bg-card flex-row items-center rounded-full px-2',
+          'android:gap-0 android:h-14 flex-row items-center rounded-full bg-card px-2',
           containerClassName
         )}
         onPress={focus}>
@@ -61,7 +61,7 @@ const SearchInput = React.forwardRef<React.ElementRef<typeof TextInput>, SearchI
           <TextInput
             ref={inputRef}
             placeholder={placeholder}
-            className={cn('text-foreground flex-1 rounded-r-full p-2 text-[17px]', className)}
+            className={cn('flex-1 rounded-r-full p-2 text-[17px] text-foreground', className)}
             placeholderTextColor={colors.grey2}
             value={value}
             onChangeText={onChangeText}

@@ -15,7 +15,7 @@ import Animated, {
 import { AlertProps, AlertRef } from './types';
 
 import { Text } from '~/components/nativewindui/Text';
-import { Button } from '../~/components/nativewindui/Button';
+import { Button } from '~/components/nativewindui/Button';
 import { TextField } from '~/components/nativewindui/TextField';
 import { TextFieldRef } from '~/components/nativewindui/TextField/types';
 import { cn } from '~/lib/cn';
@@ -106,7 +106,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>(
                   style={typeof materialWidth === 'number' ? { width: materialWidth } : undefined}
                   entering={FadeInDown}
                   exiting={FadeOutDown}
-                  className="bg-card min-w-72 max-w-xl rounded-3xl p-6 pt-7 shadow-xl">
+                  className="min-w-72 max-w-xl rounded-3xl bg-card p-6 pt-7 shadow-xl">
                   {!!materialIcon && (
                     <View className="items-center pb-4">
                       <Icon color={colors.foreground} size={27} {...materialIcon} />
@@ -215,7 +215,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>(
                                       : text
                                   );
                                 }}>
-                                <Text className="text-primary text-[14px]  font-medium">
+                                <Text className="text-[14px] font-medium  text-primary">
                                   {button.text}
                                 </Text>
                               </Button>
@@ -241,7 +241,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>(
                                       : text
                                   );
                                 }}>
-                                <Text className="text-foreground text-[14px]  font-medium">
+                                <Text className="text-[14px] font-medium  text-foreground">
                                   {button.text}
                                 </Text>
                               </Button>
@@ -263,7 +263,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>(
                                     : text
                                 );
                               }}>
-                              <Text className="text-primary text-[14px]  font-medium">
+                              <Text className="text-[14px] font-medium  text-primary">
                                 {button.text}
                               </Text>
                             </Button>
