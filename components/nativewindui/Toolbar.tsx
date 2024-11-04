@@ -33,29 +33,34 @@ function Toolbar({
 
   return (
     <BlurView
+      testID="toolbar"
       intensity={Platform.select({ ios: iosBlurIntensity, default: 0 })}
       style={{
         paddingBottom: insets.bottom + 8,
       }}
       className={cn(
-        'ios:bg-transparent ios:border-t-0 border-border/25 bg-card flex-row items-center justify-between border-t px-4 pt-2.5 dark:border-t-0',
+        'ios:bg-transparent ios:border-t-0 border-border/25 flex-row items-center justify-between border-t bg-card px-4 pt-2.5 dark:border-t-0',
         className
       )}
       {...props}>
       {Platform.OS === 'ios' && !iosHint ? (
         <>
-          {leftView}
-          {rightView}
+          <View testID="toolbar-left">{leftView}</View>
+          <View testID="toolbar-right">{rightView}</View>
         </>
       ) : (
         <>
-          <View className="flex-1 flex-row gap-2">{leftView}</View>
+          <View testID="toolbar-left" className="flex-1 flex-row gap-2">
+            {leftView}
+          </View>
           {Platform.OS === 'ios' && !!iosHint && (
-            <Text variant="caption2" className="font-medium">
+            <Text testID="toolbar-hint" variant="caption2" className="font-medium">
               {iosHint}
             </Text>
           )}
-          <View className="flex-1 flex-row justify-end">{rightView}</View>
+          <View testID="toolbar-right" className="flex-1 flex-row justify-end">
+            {rightView}
+          </View>
         </>
       )}
     </BlurView>

@@ -5,9 +5,10 @@ import { Pressable, StyleSheet } from 'react-native';
 export const HeaderButton = forwardRef<typeof Pressable, { onPress?: () => void }>(
   ({ onPress }, ref) => {
     return (
-      <Pressable onPress={onPress}>
+      <Pressable testID="header-button" onPress={onPress}>
         {({ pressed }) => (
           <FontAwesome
+            testID="info-icon"
             name="info-circle"
             size={25}
             color="gray"

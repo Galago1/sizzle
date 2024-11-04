@@ -85,6 +85,7 @@ const TextField = React.forwardRef<TextFieldRef, TextFieldProps>(
 
     return (
       <Pressable
+        testID="text-field-root"
         className={rootVariants({
           variant: materialVariant,
           state: getInputState({
@@ -122,9 +123,12 @@ const TextField = React.forwardRef<TextFieldRef, TextFieldProps>(
             )}
             <TextInput
               ref={inputRef}
+              testID="text-field-input"
+              accessible={true}
+              accessibilityRole="textbox"
               editable={editable}
               className={cn(
-                'text-foreground flex-1 rounded py-3 pl-2.5 text-[17px] dark:placeholder:text-white/30',
+                'flex-1 rounded py-3 pl-2.5 text-[17px] text-foreground dark:placeholder:text-white/30',
                 materialVariant === 'filled' && !!label && 'pb-2 pt-5',
                 className
               )}
@@ -303,6 +307,7 @@ function MaterialClearIcon(props: MaterialClearIconProps) {
   return (
     <Animated.View entering={FadeIn.duration(200)} exiting={FadeOut.duration(200)}>
       <Pressable
+        testID="text-field-clear-button"
         disabled={props.editable === false}
         className="flex-1 justify-center px-2 active:opacity-65"
         onPress={props.clearText}>
@@ -316,6 +321,7 @@ function MaterialErrorIcon() {
   const { colors } = useColorScheme();
   return (
     <Animated.View
+      testID="text-field-error-icon"
       pointerEvents="none"
       entering={FadeIn.duration(200)}
       exiting={FadeOut.duration(200)}

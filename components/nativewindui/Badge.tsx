@@ -51,6 +51,7 @@ export function Badge({
 }: BadgeProps) {
   return (
     <View
+      testID="badge"
       style={BORDER_CURVE}
       className={cn(
         variant === 'info' ? 'bg-primary' : variant === 'destructive' ? 'bg-destructive' : '',
@@ -60,6 +61,7 @@ export function Badge({
           : 'ios:-right-1 -right-1.5 -top-0.5 min-w-4 px-1'
       )}>
       <Text
+        testID="badge-text"
         variant={textVariant}
         className={cn('font-extrabold text-white', className)}
         children={getCount(children, maxCount)}

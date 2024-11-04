@@ -6,12 +6,18 @@ export default function EditScreenInfo({ path }: { path: string }) {
     'Change any of the text, save the file, and your app will automatically update.';
 
   return (
-    <View style={styles.getStartedContainer}>
-      <Text style={styles.getStartedText}>{title}</Text>
-      <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-        <Text>{path}</Text>
+    <View testID="edit-screen-info" style={styles.getStartedContainer}>
+      <Text testID="title-text" style={styles.getStartedText}>
+        {title}
+      </Text>
+      <View
+        testID="path-container"
+        style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+        <Text testID="path-text">{path}</Text>
       </View>
-      <Text style={styles.getStartedText}>{description}</Text>
+      <Text testID="description-text" style={styles.getStartedText}>
+        {description}
+      </Text>
     </View>
   );
 }

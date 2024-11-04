@@ -17,14 +17,17 @@ export function Bar({ startAdornment, title, link, endAdornment, className }: Ba
   return (
     <Link href={link as Href<string>} asChild>
       <TouchableOpacity
+        testID="bar-touchable"
         className={`flex-row items-center justify-between rounded-lg bg-white p-4 ${className || ''}`}>
-        <View className="flex-1 flex-row items-center">
+        <View testID="bar-content" className="flex-1 flex-row items-center">
           {startAdornment && <View className="mr-3">{startAdornment}</View>}
-          <Text className="flex-shrink font-['Inter'] text-sm font-normal text-gray-600">
+          <Text
+            testID="bar-title"
+            className="flex-shrink font-['Inter'] text-sm font-normal text-gray-600">
             {title}
           </Text>
         </View>
-        <View className="flex-shrink-0">
+        <View testID="bar-end-adornment" className="flex-shrink-0">
           {endAdornment || <MaterialCommunityIcons name="chevron-right" size={24} color="gray" />}
         </View>
       </TouchableOpacity>
@@ -38,7 +41,7 @@ interface BarGroupProps {
 
 export function BarGroup({ children }: BarGroupProps) {
   return (
-    <View className="overflow-hidden rounded-lg bg-white">
+    <View testID="bar-group" className="overflow-hidden rounded-lg bg-white">
       {React.Children.map(children, (child, index) => (
         <React.Fragment key={index}>
           {index > 0 && <View className="h-[1px] bg-gray-200" />}

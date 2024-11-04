@@ -60,12 +60,17 @@ const ProgressIndicator = React.forwardRef<
           now: value,
           text: getValueLabel(value, max),
         }}
+        testID="progress-indicator"
         className={cn('relative h-1 w-full overflow-hidden rounded-full', className)}
         {...props}>
-        <View className="absolute bottom-0 left-0 right-0 top-0 bg-muted opacity-20" />
+        <View
+          testID="progress-background"
+          className="absolute bottom-0 left-0 right-0 top-0 bg-muted opacity-20"
+        />
         <Animated.View
           role="presentation"
           style={indicator}
+          testID="progress-bar"
           className={cn('h-full', indicatorClassName ?? 'bg-primary')}
         />
       </View>
