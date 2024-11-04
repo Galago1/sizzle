@@ -19,6 +19,7 @@ const Sheet = React.forwardRef<
   );
   return (
     <BottomSheetModal
+      testID="bottom-sheet"
       ref={ref}
       index={0}
       backgroundStyle={

@@ -35,16 +35,19 @@ const Checkbox = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Root
     return (
       <CheckboxPrimitive.Root
         ref={ref}
+        testID="checkbox-root"
         className={cn(
-          'ios:rounded-full ios:h-[22px] ios:w-[22px] border-muted-foreground h-[18px] w-[18px] rounded-sm border',
-          checked && 'bg-primary border-0',
+          'ios:rounded-full ios:h-[22px] ios:w-[22px] h-[18px] w-[18px] rounded-sm border border-muted-foreground',
+          checked && 'border-0 bg-primary',
           props.disabled && 'opacity-50',
           className
         )}
         checked={checked}
         onCheckedChange={onCheckedChange}
         {...props}>
-        <CheckboxPrimitive.Indicator className={cn('h-full w-full items-center justify-center')}>
+        <CheckboxPrimitive.Indicator
+          testID="checkbox-indicator"
+          className={cn('h-full w-full items-center justify-center')}>
           <Icon
             name="check"
             ios={{ weight: 'medium' }}

@@ -30,6 +30,7 @@ const Chip = ({
 
   return (
     <Pressable
+      testID="chip"
       onPress={disabled ? undefined : handlePress}
       className={`
         flex-row items-center self-start rounded-full border px-6 py-2.5
@@ -46,6 +47,7 @@ const Chip = ({
       `}>
       {icon && <View className="mr-2">{icon}</View>}
       <Text
+        testID="chip-label"
         className={`
           text-center text-sm font-medium
           ${disabled ? 'text-gray-400' : 'text-gray-800'}

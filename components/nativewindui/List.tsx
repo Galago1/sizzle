@@ -92,6 +92,7 @@ function ListComponent<T extends ListDataItem>(
   const insets = useSafeAreaInsets();
   return (
     <View
+      testID="list-root"
       className={cn(
         rootVariants({
           variant,
@@ -101,6 +102,7 @@ function ListComponent<T extends ListDataItem>(
       )}
       style={rootStyle}>
       <FlashList
+        testID="list-flash-list"
         data={data}
         contentInsetAdjustmentBehavior={contentInsetAdjustmentBehavior}
         renderItem={renderItemWithVariant(renderItem, variant, data, sectionHeaderAsGap)}
@@ -284,6 +286,7 @@ function ListItemComponent<T extends ListDataItem>(
   return (
     <>
       <Button
+        testID="list-item"
         disabled={disabled || !isPressable(props)}
         variant="plain"
         size="none"
@@ -379,6 +382,7 @@ function ListSectionHeaderComponent<T extends ListDataItem>(
   if (sectionHeaderAsGap) {
     return (
       <View
+        testID="list-section-header"
         className={cn(
           'bg-background',
           Platform.OS !== 'ios' && 'border-border/25 dark:border-border/80 border-b',
@@ -392,6 +396,7 @@ function ListSectionHeaderComponent<T extends ListDataItem>(
   }
   return (
     <View
+      testID="list-section-header"
       className={cn(
         'ios:pb-1 pb-4 pl-4 pt-4',
         Platform.OS !== 'ios' && 'border-border/25 dark:border-border/80 border-b',

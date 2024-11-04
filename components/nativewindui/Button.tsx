@@ -127,14 +127,20 @@ const Button = React.forwardRef<React.ElementRef<typeof Pressable>, ButtonProps>
     return (
       <TextClassContext.Provider value={buttonTextVariants({ variant, size })}>
         <Root
+          testID="button-root"
           className={Platform.select({
             ios: undefined,
             default: androidRootVariants({
               size,
               className: androidRootClassName,
             }),
+          })}
+          {...Platform.select({
+            android: props, // Pass props to Root only on Android
+            default: {},
           })}>
           <Pressable
+            testID="button-pressable"
             className={cn(
               props.disabled && 'opacity-50',
               buttonVariants({ variant, size, className })

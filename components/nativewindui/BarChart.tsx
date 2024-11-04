@@ -14,11 +14,11 @@ interface BarChartProps {
   data: DataItem[];
 }
 
-const BarChart: React.FC<BarChartProps> = ({ data }) => {
+export function BarChart({ data }: BarChartProps) {
   return (
-    <View style={styles.container}>
+    <View testID="bar-chart">
       {data.map((item, index) => (
-        <View key={index} style={styles.barContainer}>
+        <View key={index} testID="bar-item" style={styles.barContainer}>
           <Svg height="100" width="20">
             <Path
               d={`M0,${100 - (item.total / 20) * 100} 
@@ -39,12 +39,14 @@ const BarChart: React.FC<BarChartProps> = ({ data }) => {
               fill="#333"
             />
           </Svg>
-          <Text style={styles.dayLabel}>{item.day}</Text>
+          <Text testID={`day-label-${index}`} style={styles.dayLabel}>
+            {item.day}
+          </Text>
         </View>
       ))}
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -62,5 +64,4 @@ const styles = StyleSheet.create({
     color: '#333',
   },
 });
-
 export default BarChart;

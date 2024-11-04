@@ -25,7 +25,7 @@ const ChipList = ({
   };
 
   return (
-    <View className="flex-row flex-wrap gap-2">
+    <View testID="chip-list" className="flex-row flex-wrap gap-2">
       {labels.map((label) => (
         <Chip
           key={label}
@@ -33,6 +33,7 @@ const ChipList = ({
           selected={selectedLabels.includes(label)}
           disabled={disabledLabels.includes(label)}
           onPress={() => handleChipPress(label)}
+          testID={`chip-${label}`}
         />
       ))}
     </View>

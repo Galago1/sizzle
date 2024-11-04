@@ -8,9 +8,9 @@ interface RectangleChartProps {
 
 const RectangleChart: React.FC<RectangleChartProps> = ({ data }) => {
   const renderWeek = (startIndex: number) => (
-    <View key={startIndex} className="mb-1 flex-row justify-between">
+    <View key={startIndex} className="mb-1 flex-row justify-between" testID={`week-${startIndex}`}>
       {data.slice(startIndex, startIndex + 7).map((value, index) => (
-        <View key={index} className="items-center">
+        <View key={index} className="items-center" testID={`day-${startIndex + index}`}>
           <View className="h-6 w-8 overflow-hidden rounded-sm bg-gray-200">
             <Svg width="100%" height="100%">
               <Rect
@@ -33,7 +33,7 @@ const RectangleChart: React.FC<RectangleChartProps> = ({ data }) => {
   );
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} className="p-4">
+    <ScrollView showsVerticalScrollIndicator={false} className="p-4" testID="rectangle-chart">
       <View>{[0, 7, 14, 21, 28].map((startIndex) => renderWeek(startIndex))}</View>
     </ScrollView>
   );

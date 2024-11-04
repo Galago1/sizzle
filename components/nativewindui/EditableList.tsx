@@ -71,15 +71,21 @@ export function EditableList({
   };
 
   return (
-    <View className={className}>
-      {title && <Text className="mb-4 text-lg font-bold">{title}</Text>}
+    <View testID="editable-list" className={className}>
+      {title && (
+        <Text testID="list-title" className="mb-4 text-lg font-bold">
+          {title}
+        </Text>
+      )}
       <DragList
+        testID="drag-list"
         data={data}
         keyExtractor={keyExtractor}
         onReordered={handleReorder}
         renderItem={renderItem}
       />
       <TouchableOpacity
+        testID="add-task-button"
         onPress={onAddItem}
         className="mt-4 self-center rounded-full border border-gray-800 px-6 py-2">
         <Text className="font-['Inter'] font-medium text-gray-600">Add Task</Text>

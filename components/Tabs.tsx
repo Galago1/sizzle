@@ -46,6 +46,7 @@ export function Tabs({ tabs, selectedId, onSelect, className }: TabsProps) {
 
   return (
     <ScrollView
+      testID="tabs-container"
       ref={scrollViewRef}
       horizontal
       showsHorizontalScrollIndicator={false}
@@ -58,6 +59,7 @@ export function Tabs({ tabs, selectedId, onSelect, className }: TabsProps) {
       {tabs.map((tab) => (
         <View key={tab.id} style={{ alignItems: 'center' }}>
           <TouchableOpacity
+            testID={`tab-${tab.id}`}
             ref={(ref) => {
               tabRefs.current[tab.id] = ref;
             }}

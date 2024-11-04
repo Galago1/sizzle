@@ -17,28 +17,37 @@ const AvatarAndText: React.FC<AvatarAndTextProps> = ({
   fallbackText = '',
 }) => {
   return (
-    <View className="flex-row items-center">
-      <Avatar alt={title} className="mr-3 h-16 w-16">
+    <View className="flex-row items-center" testID="avatar-and-text">
+      <Avatar alt={title} className="mr-3 h-16 w-16" testID="avatar">
         {avatarUrl ? (
           <AvatarImage
             className="h-16 w-16"
             source={{
               uri: avatarUrl,
             }}
+            testID="avatar-image"
           />
         ) : (
-          <AvatarFallback className="flex items-center justify-center bg-white">
+          <AvatarFallback
+            className="flex items-center justify-center bg-white"
+            testID="avatar-fallback">
             {fallbackText ? (
-              <Text className="font-['Inter'] text-lg font-semibold text-foreground">
+              <Text
+                className="font-['Inter'] text-lg font-semibold text-foreground"
+                testID="fallback-text">
                 {fallbackText}
               </Text>
             ) : null}
           </AvatarFallback>
         )}
       </Avatar>
-      <View>
-        <Text className="font-['Inter'] text-lg font-semibold">{title}</Text>
-        <Text className="font-['Inter'] text-sm text-gray-600">{subtitle}</Text>
+      <View testID="text-container">
+        <Text className="font-['Inter'] text-lg font-semibold" testID="title">
+          {title}
+        </Text>
+        <Text className="font-['Inter'] text-sm text-gray-600" testID="subtitle">
+          {subtitle}
+        </Text>
       </View>
     </View>
   );

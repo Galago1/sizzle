@@ -10,16 +10,19 @@ export function Picker<T>({
   dropdownIconColor,
   dropdownIconRippleColor,
   className,
+  testID = 'picker',
   ...props
 }: React.ComponentPropsWithoutRef<typeof RNPicker<T>>) {
   const { colors } = useColorScheme();
   return (
     <View
+      testID="picker-container"
       className={cn(
-        'ios:shadow-sm ios:shadow-black/5 border-background bg-background rounded-md border',
+        'ios:shadow-sm ios:shadow-black/5 rounded-md border border-background bg-background',
         className
       )}>
       <RNPicker
+        testID={testID}
         mode={mode}
         style={
           style ?? {

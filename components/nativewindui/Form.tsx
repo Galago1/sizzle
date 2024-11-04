@@ -7,7 +7,7 @@ import { cn } from '~/lib/cn';
 import { useColorScheme } from '~/lib/useColorScheme';
 
 const Form = React.forwardRef<View, ViewProps>(({ className, ...props }, ref) => {
-  return <View ref={ref} className={cn('flex-1 gap-9', className)} {...props} />;
+  return <View ref={ref} className={cn('flex-1 gap-9', className)} testID="form-root" {...props} />;
 });
 
 // Add as class when possible: https://github.com/marklawlor/nativewind/issues/522
@@ -61,6 +61,7 @@ const FormSection = React.forwardRef<React.ElementRef<typeof View>, FormSectionP
 
     return (
       <View
+        testID="form-section"
         className={cn(
           'relative',
           Platform.OS !== 'ios' && !!materialIconProps && 'flex-row gap-4',
@@ -69,7 +70,7 @@ const FormSection = React.forwardRef<React.ElementRef<typeof View>, FormSectionP
         {Platform.OS === 'ios' && !!ios?.title && (
           <Text
             variant="footnote"
-            className={cn('text-muted-foreground pb-1 pl-3 uppercase', ios?.titleClassName)}>
+            className={cn('pb-1 pl-3 uppercase text-muted-foreground', ios?.titleClassName)}>
             {ios.title}
           </Text>
         )}
@@ -92,7 +93,7 @@ const FormSection = React.forwardRef<React.ElementRef<typeof View>, FormSectionP
           {!!footnote && (
             <Text
               className={cn(
-                'ios:pl-3 ios:pt-1 text-muted-foreground pl-3 pt-0.5',
+                'ios:pl-3 ios:pt-1 pl-3 pt-0.5 text-muted-foreground',
                 footnoteClassName
               )}
               variant="footnote">
@@ -114,9 +115,12 @@ const FormItem = React.forwardRef<
 >(({ className, isLast, iosSeparatorClassName, ...props }, ref) => {
   return (
     <>
-      <View ref={ref} className={cn('ios:pr-1', className)} {...props} />
+      <View ref={ref} className={cn('ios:pr-1', className)} testID="form-item" {...props} />
       {Platform.OS === 'ios' && !isLast && (
-        <View className={cn('bg-border ml-2 h-px flex-1', iosSeparatorClassName)} />
+        <View
+          testID="form-separator"
+          className={cn('ml-2 h-px flex-1 bg-border', iosSeparatorClassName)}
+        />
       )}
     </>
   );

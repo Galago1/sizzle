@@ -22,8 +22,10 @@ const Card = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof View> & { rootClassName?: string }
 >(({ className, rootClassName, ...props }, ref) => (
   <View
+    testID="card-root"
     className={cn('ios:shadow-xl ios:rounded-2xl rounded-xl bg-card shadow-2xl', rootClassName)}>
     <View
+      testID="card-container"
       ref={ref}
       className={cn('ios:rounded-2xl justify-end overflow-hidden rounded-xl', className)}
       {...props}
