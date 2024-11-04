@@ -5,7 +5,7 @@ A blazing fast React Native boilerplate that brings the heat to your mobile deve
 ## ⚡️ Features
 
 - 🎨 Styled with NativeWind (Tailwind CSS for React Native)
-- 🎯 UI components from NativeWindUI
+- 🎯 UI components from NativeWindUI. >>> [This cost money](https://nativewindui.com/) <<<
 - 📱 Built with Expo 51
 - 🔍 Full TypeScript support
 - ✅ Testing setup with Jest & React Native Testing Library
